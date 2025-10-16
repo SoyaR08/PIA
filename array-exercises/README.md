@@ -6,6 +6,7 @@
 - [Ejercicios del 11 al 20](11to20exercises.py)
 - [Ejercicios del 21 al 30](21to30exercises.py)
 - [Ejercicios del 31 al 40](31to40exercises.py)
+- [Ejercicios del 41 al 50](41to50exercises.py)
 
 
 ## Enunciados
