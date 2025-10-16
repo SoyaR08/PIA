@@ -86,8 +86,50 @@ array_to_slice = list(range(1, 13))
 def find_divisors(length):
     divisors = []
     for i in range(1, length + 1):
-        if length % i == 0 and (i != 1 and i != length):
+        if length % i == 0:
             divisors.append(i)
-    return divisors
 
-print("Lista dividida en partes iguales:", find_divisors(len(array_to_slice)))
+    # This case is for prime numbers, so the only way to divide it is making n list of 1 element length
+    if len(divisors) == 2:
+        divisors.reverse()
+        return tuple(divisors) # The first number is the number of parts, the second is the size of each part
+    
+    # Removing 1 and the number itself
+    divisors.pop(0)
+    divisors.pop()
+    
+    partition = [divisors[0], divisors[-1]]
+
+    return tuple(partition) # The first number is the number of parts, the second is the size of each part
+
+def divide_list(array):
+    
+
+    way_to_divide = find_divisors(len(array))
+    divided_array = []
+    last_index = 0
+
+    # Copilot gave me this solution, but due to my pride I chose to do it by myself. That cost me a lot of headaches
+
+    # for i in range(way_to_divide[0]):
+    #     part = []
+    #     for j in range(way_to_divide[1]):
+    #         part.append(array.pop(0))
+    #     divided_array.append(part)
+
+    for i in range(way_to_divide[0]):
+
+        part = []
+        step = last_index + way_to_divide[1]
+
+        part+=(array[last_index:step])
+        
+        last_index += way_to_divide[1]
+            
+        divided_array.append(part)
+
+    return divided_array
+    
+
+print("Lista dividida en partes iguales:", divide_list(array_to_slice))
+print()
