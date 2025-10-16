@@ -72,8 +72,7 @@ dictionary_duplications = {}
 numbers_non_duplicated = []
 
 for i in range(0, len(numbers_duplicated)):
-    for j in range(i, len(numbers_duplicated)):
-        duplicated = False
+    for j in range(0, len(numbers_duplicated)):
         if numbers_duplicated[i] == numbers_duplicated[j] and i != j:
             if numbers_duplicated[i] not in dictionary_duplications:
                 dictionary_duplications[numbers_duplicated[i]] = [j]
@@ -81,8 +80,11 @@ for i in range(0, len(numbers_duplicated)):
                 if j not in dictionary_duplications[numbers_duplicated[i]]:
                     dictionary_duplications[numbers_duplicated[i]].append(j)
 
+print("Diccionario de duplicados:", dictionary_duplications.values())
+
 for position in dictionary_duplications.values():
-    numbers_duplicated[position[0]] = ""
+    for i in range(1, len(position)):
+        numbers_duplicated[position[i]] = ""
 
 numbers_non_duplicated = list(filter(lambda x: x != "", numbers_duplicated))
 
