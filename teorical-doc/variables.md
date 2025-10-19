@@ -59,7 +59,47 @@ print(my_int_variable)
 
 ### Reglas para definir variables:
 
-- Un nombre de variable debe comenzar con una letra o guión bajo
+- Un nombre de variable debe comenzar con una letra o guión bajo.
+- El nombre de variable no puede comenzar con un número.
+- Solo puede contener caracteres alfanuméricos y guiones bajos (A-Z, 0-9, y _).
+- Los nombres de variables distinguen entre mayúsculas y minúsculas.
+- Un nombre de varible no puede ser ninguna de las palabras reservadas de Python.
+
+Python permite asignar valores a múltiples variables:
+
+```python
+var1, var2, var3 = 1, 2, 3
+```
+
+A su vez, se le puede asignar el mismo valor a múltiples variables en la misma línea:
+
+```python
+var1, var2, var3 = 1
+```
+
+Si tenemos una colección de valores en una lista, tupla, etc. Python permite extraer los valores en variables (desempaquetar):
+
+```python
+fruits = ['Plátano', 'Manzana', 'Melón']
+var1, var2, var3 = fruits
+print(fruits)
+['Plátano', 'Manzana', 'Melón']
+print(var1)
+Plátano
+print(var2)
+Manzana
+print(var3)
+Melón
+```
+
+Para visualizar los datos, disponemos de la función print(). Para visualizar varios datos, concatenar variables, utilizamos las variables separadas por coma.
+
+```python
+print(var1," ",var2," ",var3)
+Plátano Manzana Melón
+```
+
+### Tipos de Datos
 
 | Utilidad            	| Nombre del tipo     	|
 |---------------------	|---------------------	|
@@ -71,3 +111,17 @@ print(my_int_variable)
 | Tipo booleano:      	| bool                	|
 | Tipo binario:       	| bytes, bytearray, memoryview 	|
 | Ningún tipo:        	| NoneType                     	|
+
+Las variables no necesitan declararse con ningún tipo en particular, e incluso pueden cambiar de tipo después de haber sido configuradas.
+
+Si se desea especificar el tipo de datos de una variable, se puede realizar mediante conversión:
+
+```python
+x = str(10)
+y = int(10)
+z = float(10)
+
+print("Cadena: ", x)
+print("Numérico: ", y)
+print("Decimal: ", z)
+```
