@@ -14,14 +14,11 @@
 # a. Escribe un programa que imprima la tabla de multiplicar del 1 al 10 utilizando un bucle 
 # for.
 # 17. Potencia de un número con for
-# a. Escribe un programa que calcule la potencia de un número dado utilizando un bucle 
-# for
+# a. Escribe un programa que calcule la potencia de un número dado utilizando un bucle for
 # 18. Calcular promedio con for
-# Escribe un programa que calcule el promedio de una lista de números utilizando un bucle 
-# for.
+# Escribe un programa que calcule el promedio de una lista de números utilizando un bucle for.
 # 19. Contar letras y dígitos con for
-# Escribe un programa que cuente cuántas letras y cuántos dígitos hay en una cadena 
-# utilizando un bucle for.
+# Escribe un programa que cuente cuántas letras y cuántos dígitos hay en una cadena utilizando un bucle for.
 # 20. Comparación de listas con for
 # Escribe un programa que compare dos listas y cuente cuántos elementos coinciden utilizando 
 # un bucle for.
@@ -132,3 +129,77 @@ print(countTimesNumberAppears(num1_divisors))
 print(countTimesNumberAppears(num2_divisors))
 print("El mínimo común múltiplo de ",num1," y ",num2," es:",calculateMCM(num1_divisors, num2_divisors))
 print()
+
+# Ejercicio 13
+print("============= Ejercicio 13 =============")
+words_list = ["manzana", "mañana", "avena", "pera", "anís", "uva"]
+letter_to_check = "a"
+
+count = 0
+
+for word in words_list:
+    if word.startswith(letter_to_check):
+        count += 1
+
+print("Número de palabras que empiezan con la letra '", letter_to_check, "': ", count)
+print()
+
+# Ejercicio 14
+print("============= Ejercicio 14 =============")
+numbers_list = [1, 67, 23, 89, 12, 90, 45]
+max_number = numbers_list[0]
+
+for number in numbers_list:
+    if number > max_number:
+        max_number = number
+
+print("El número más grande en la lista es:", max_number)
+print()
+
+# Ejercicio 15
+print("============= Ejercicio 15 =============")
+start_range = 10
+end_range = 50
+final = 0
+for i in range(start_range, end_range + 1):
+    final += i
+
+print("La suma de los números entre", start_range, "y", end_range, "es:", final)
+print()
+
+# Ejercicio 16
+print("============= Ejercicio 16 =============")
+print
+for i in range(1, 11):
+    print("Tabla del", i)
+    for j in range (1, 11):
+        print(i, "x", j, "=", i*j)
+    print()
+
+# Ejercicio 17
+print("============= Ejercicio 17 =============")
+number_exp = 2
+exponent = 4
+total = 1
+for i in range(1, exponent + 1):
+    total *= number_exp 
+
+print(total)
+print()
+
+# Ejercicio 18
+print("============= Ejercicio 18 =============")
+
+list_total = 0
+media = 0
+
+for number in numbers_list:
+    list_total += number
+
+media = list_total / len(numbers_list)
+
+print("El promedio de la lista es:", media)
+print()
+
+# Ejercicio 19
+print("============= Ejercicio 19 =============")
