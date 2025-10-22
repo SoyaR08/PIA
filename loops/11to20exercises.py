@@ -203,3 +203,49 @@ print()
 
 # Ejercicio 19
 print("============= Ejercicio 19 =============")
+string = "Hola123Mundo456"
+letters = "abcdefghijklmnñopqrstuvwxyz"
+numbers = "0123456789"
+count_dict = {"letters": 0, "digits": 0}
+
+for char in string.lower():
+    if char in letters:
+        if "letters" in count_dict:
+            count_dict["letters"] += 1
+        else:
+            count_dict["letters"] = 1
+    elif char in numbers:
+        if "digits" in count_dict:
+            count_dict["digits"] += 1
+        else:
+            count_dict["digits"] = 1
+
+print(f"Hay {count_dict.get('letters')} letras y {count_dict.get('digits')} dígitos en la cadena.")
+print()
+
+# Ejercicio 20
+print("============= Ejercicio 20 =============")
+list1 = [1, 2, 3, 4, 5, 6, 7, 8]
+list2 = [5, 6, 7, 8, 9, 10, 11, 12]
+match_counts = 0
+
+length = findLargerDivisorsList(list1, list2)
+
+match length:
+    case -1:
+        largerList = list1
+        smallerList = list2
+    case 1:
+        largerList = list2
+        smallerList = list1
+    case 0:
+        largerList = list1
+        smallerList = list2
+
+
+for item in largerList:
+    if item in smallerList:
+        match_counts += 1
+
+print("Número de elementos que coinciden en ambas listas:", match_counts)
+print()
