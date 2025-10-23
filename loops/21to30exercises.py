@@ -113,3 +113,61 @@ for number in number_list:
         min_number = number
 
 print(f"El número mayor de la lista es: {max_number} y el menor es: {min_number}")
+
+# Ejercicio 25
+print("============= Ejercicio 25 =============")
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+input_text = input("Introduce un texto: ")
+cifred_word = ""
+
+
+for char in input_text:
+    index = alphabet.find(char.lower())
+
+    if index + 1 > len(alphabet) - 1:
+        cifred_word += alphabet[0]
+
+    else:
+        cifred_word += alphabet[index + 1]
+
+print(f"Texto cifrado: {cifred_word}")
+print()
+
+# Ejercicio 26
+print("============= Ejercicio 26 =============")
+
+y_axis = 4
+number = 1
+for y in range(1, y_axis + 1):
+    string = ""
+    for x in range(y):
+        string += str(number) + " "
+        number+=1
+    print(string)
+print()
+
+# Ejercicio 27
+print("============= Ejercicio 27 =============")
+import random
+
+head_streak = 0
+head_counter = 0
+cross_counter = 0
+history = []
+
+while head_streak < 3:
+    choice = random.randint(0, 1)
+
+    match choice:
+        case 0:
+            head_counter += 1
+            head_streak += 1
+            history.append("Cara")
+        case 1:
+            cross_counter += 1
+            head_streak = 0
+            history.append("Cruz")
+
+print(f"Han salido {head_counter} caras y {cross_counter} cruces hasta obtener 3 caras seguidas.")
+print(f"Historial de lanzamientos: {history}")
+print()

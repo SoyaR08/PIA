@@ -1,14 +1,25 @@
-# Ejercicio 24
-print("============= Ejercicio 24 =============")
+# Ejercicio 27
+print("============= Ejercicio 27 =============")
+import random
 
-number_list = [9, 10, 8, 3, 2, -7, 5, 6, 4, 1]
-max_number = number_list[0]
-min_number = number_list[0]
+head_streak = 0
+head_counter = 0
+cross_counter = 0
+history = []
 
-for number in number_list:
-    if number > max_number:
-        max_number = number
-    elif number < min_number:
-        min_number = number
+while head_streak < 3:
+    choice = random.randint(0, 1)
 
-print(f"El número mayor de la lista es: {max_number} y el menor es: {min_number}")
+    match choice:
+        case 0:
+            head_counter += 1
+            head_streak += 1
+            history.append("Cara")
+        case 1:
+            cross_counter += 1
+            head_streak = 0
+            history.append("Cruz")
+
+print(f"Han salido {head_counter} caras y {cross_counter} cruces hasta obtener 3 caras seguidas.")
+print(f"Historial de lanzamientos: {history}")
+print()
