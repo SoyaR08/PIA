@@ -171,3 +171,66 @@ while head_streak < 3:
 print(f"Han salido {head_counter} caras y {cross_counter} cruces hasta obtener 3 caras seguidas.")
 print(f"Historial de lanzamientos: {history}")
 print()
+
+# Ejercicio 28
+print("============= Ejercicio 28 =============")
+
+square_height = 4
+square_length = 4
+
+for h in range(1, square_height + 1):
+    string = ""
+    for l in range(1, square_length + 1):
+        string += "*" # Due to the output it looks like more similar to a rectangle but its sides are equal among themselves
+
+    print(string)
+
+print()
+
+# Ejercicio 29
+print("============= Ejercicio 29 =============")
+string1 = "Hola"
+string2 = "Hol4"
+
+equals = True
+i = 0
+if len(string1) == len(string2):
+    while (i < len(string1) and equals):
+        if not string1[i].lower() == string2[i].lower():
+            equals = False
+        i += 1
+
+else:
+    equals = False
+
+print(f"¿Las cadenas son iguales?: {equals}")
+print()
+
+# Ejercicio 30
+print("============= Ejercicio 30 =============")
+import random
+user_number = input("Introduce un número entre 1 y 10: ")
+
+while not user_number.isdigit():
+    user_number = input("Eso no es un número, introduce otro entre 1 y 10: ")
+
+
+user_number = int(user_number)
+
+tries = 1
+number_selected = random.randint(1, 10)
+got_it = False
+range_to_choose = [1,2,3,4,5,6,7,8,9,10]
+
+while not got_it:
+    if user_number == number_selected:
+        got_it = True
+
+    else:
+        range_to_choose.remove(number_selected)
+        number_selected = random.choice(range_to_choose)
+        tries += 1
+    print("Pensando...")
+
+print(f"La máquina ha necesitado {tries} intentos para adivinar el número {user_number}")
+print()
