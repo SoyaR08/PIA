@@ -1,8 +1,10 @@
-from functions import plus_digits
+from functions import squared
 
-# Ejercicio Suma de Dígitos 
 
-print("============= Ejercicio Suma de Dígitos =============")
-numeric_string = input("Introduce un número cualquiera: ")
-print(f"La suma de los dígitos de {numeric_string} es {plus_digits(numeric_string)}")
+# Ejercicio Cuadrado 
+
+print("============= Ejercicio Cuadrado =============")
+
+square_number = 2
+print(f"El cuadrado de {square_number} es {squared(square_number)}")
 print()
