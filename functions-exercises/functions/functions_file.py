@@ -20,6 +20,19 @@ def isPrimeNumber(n):
         
     return True
 
+def plus_digits(number):
+
+    result = 0
+
+    if not number.isnumeric() and '-' in number:
+        return "Input no válido"
+    
+    digits_array = list(number)
+
+    for n in digits_array:
+        result += int(n)
+
+    return result
 
 def fibonacci(number):
 
