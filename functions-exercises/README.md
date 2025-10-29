@@ -4,6 +4,16 @@
 
 Por razones de limpieza he separado todas las funciones en un archivo a parte llamado functions_file.py, todas las funciones del boletín estarán ahí contenidas y serán llamadas desde un archivo externo
 
+## Estructura de carpetas
+```python
+functions-exercises #Raíz del proyecto
+├── README.md # El archivo que está leyendo ahora mismo
+├── functions # Carpeta de Funciones
+│   ├── __init__.py
+│   └── functions_file.py # Fichero que alberga todo el código de las funciones
+├── result.py # Fichero donde están todas las llamadas a las funciones
+└── test.py # Fichero donde se probaron las funciones individualmente, se recomienda probarlas aquí para que las ejecuciones no se interrumpan entre sí
+```
 ### Enunciados
 
 FACTORIAL: Escribir una función que calcule el factorial de un número dado.  
