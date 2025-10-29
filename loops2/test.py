@@ -1,13 +1,9 @@
-# Ejercicio 8
-print("============= Ejercicio 8 =============")
+# Ejercicio 15
+print("============= Ejercicio 15 =============")
 
-n_times = 8
-odd_times = 0
-i = 1
-while odd_times < n_times:
-    if i % 2 != 0:
-        print(i)
-        odd_times += 1
-    i += 1
+year = 2024
+
+if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
+    print(f"El año {year} es bisiesto.")
 
 print()

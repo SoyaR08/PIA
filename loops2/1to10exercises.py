@@ -92,3 +92,20 @@ def fibonacci(number):
 
 
 fibonacci(50)
+
+# Ejercicio 10
+print("============= Ejercicio 10 =============")
+
+number = input("Ingresa un número entero positivo:")
+if not number.isdigit():
+    while not number.isdigit():
+        number = input("Por favor ingresa un número entero positivo:")
+elif int(number) <= 0:
+    while int(number) <= 0:
+        number = input("Por favor ingresa un número entero positivo:")
+
+num_digits = 0
+for digit in number:
+    num_digits += 1
+
+print(f"El número de dígitos en el número ingresado es: {num_digits}")
