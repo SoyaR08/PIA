@@ -164,6 +164,14 @@ squared = lambda a: a**2
 
 addition = lambda a,b: a+b
 
+# Mayor que
+
+greatherThan = lambda a,b: a if a > b else b
+
 # Invertir una cadena
 
-reversa = lambda a: a[::-1]
+revertString = lambda a: a[::-1]
+
+# Averiguar si es palíndromo
+
+isPalindrome = lambda a: a.lower().replace(" ", "") == a[::-1].lower().replace(" ", "")

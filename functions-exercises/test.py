@@ -1,10 +1,10 @@
-from functions import squared
+from functions import isPalindrome
 
 
-# Ejercicio Cuadrado 
+# Ejercicio Palíndromo 
 
-print("============= Ejercicio Cuadrado =============")
+print("============= Ejercicio Palíndromo =============")
 
-square_number = 2
-print(f"El cuadrado de {square_number} es {squared(square_number)}")
+string = "Anita lava la tina"
+print(f"¿La cadena {string} es un palíndromo? {isPalindrome(string)}")
 print()

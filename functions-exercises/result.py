@@ -96,6 +96,32 @@ square_number = 2
 print(f"El cuadrado de {square_number} es {squared(square_number)}")
 print()
 
+# Ejercicio Suma de dos números 
+
+print("============= Ejercicio Suma de dos números =============")
+
+number1 = 2
+number2 = 3
+print(f"La suma de {number1} y {number2} es {addition(number1, number2)}")
+print()
+
+# Ejercicio Invertir una cadena 
+
+print("============= Ejercicio Invertir una cadena =============")
+
+string = "Amor"
+print(f"La cadena {string} al revés es: {revertString(string)}")
+print()
+
+# Ejercicio Número mayor 
+
+print("============= Ejercicio Número mayor =============")
+
+number1 = 2
+number2 = 3
+print(f"El mayor de {number1} y {number2} es {greatherThan(number1, number2)}")
+print()
+
 # Ejercicio Filtrar pares 
 
 print("============= Ejercicio Filtrar pares =============")
@@ -103,5 +129,13 @@ print("============= Ejercicio Filtrar pares =============")
 evenAndOdds = [1, 2, 3, 4, 5, 6, 7, 8]
 even = list(filter(lambda a: a % 2 == 0, evenAndOdds))
 print(even)
+print()
+
+# Ejercicio Palíndromo 
+
+print("============= Ejercicio Palíndromo =============")
+
+string = "Anita lava la tina"
+print(f"¿La cadena {string} es un palíndromo? {isPalindrome(string)}")
 print()
 
