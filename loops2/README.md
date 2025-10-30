@@ -49,7 +49,6 @@ correspondiente (A, B, C, D, F) usando condicionales.
 ingresado es una vocal. 
 18. Números dentro de un rango: Verifica si un número dado está dentro de un rango (por 
 ejemplo, entre 1 y 100). 
-PYTHON – Bucles y Condiciones 
 19. Calculadora simple: Solicita dos números y una operación (+, -, *, /) al usuario y realiza 
 la operación usando condicionales. 
 20. Número primo: Escribe un programa que determine si un número es primo. 

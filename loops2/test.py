@@ -1,9 +1,8 @@
-# Ejercicio 15
-print("============= Ejercicio 15 =============")
+# Ejercicio 22
+print("============= Ejercicio 22 =============")
 
-year = 2024
-
-if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
-    print(f"El año {year} es bisiesto.")
+for i in range(1, 101):
+    if i % 3 == 0 and i % 5 == 0:
+        print(i)
 
 print()
