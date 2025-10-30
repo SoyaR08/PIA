@@ -1,8 +1,19 @@
-# Ejercicio 22
-print("============= Ejercicio 22 =============")
+# Ejercicio 30
+print("============= Ejercicio 30 =============")
 
-for i in range(1, 101):
-    if i % 3 == 0 and i % 5 == 0:
-        print(i)
+isANumber = False
+digits_sum = 0
+while not isANumber:
+    n = input("Introduce un número: ")
 
+    try:
+        n_int = int(n)
+        isANumber = True
+    except:
+        continue
+        
+for digit in n:
+    digits_sum += int(digit)
+
+print(f"La suma de los dígitos de {n} es {digits_sum}")
 print()
