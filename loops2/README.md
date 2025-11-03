@@ -12,17 +12,21 @@
 2. Números pares del 1 al 100: Usa un bucle for para imprimir solo los números pares entre 
 1 y 100. 
 3. Imprimir un patrón de estrellas: Crea un bucle que imprima el siguiente patrón: 
+```python
 * 
 ** 
 *** 
 **** 
 ***** 
+```
 4. Imprimir un patrón invertido: Crea un bucle que imprima el siguiente patrón: 
+```python
 ***** 
 **** 
 *** 
 ** 
 * 
+```
 5. Suma de los primeros N números: Usa un bucle para sumar los primeros N números 
 (donde N es ingresado por el usuario). 
 6. Factorial de un número: Escribe un programa que calcule el factorial de un número 
