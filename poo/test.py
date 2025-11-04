@@ -1,9 +1,13 @@
-from classes import Libro
-# Ejercicio 1
+from classes import CuentaBancaria, Type
+# Ejercicio 3
 
-print("============= Ejercicio 1 =============")
+print("============= Ejercicio 3 =============")
 
-book = Libro("El Quijote", "Miguel de Cervantes", 1469, 1605)
-print(book)
-print(book.isLarge())
+account = CuentaBancaria("Ana Pérez", 1000, Type.AHORROS)
+
+print(account.deposit_money(500))
+print(account.show_info())
+print(account.withdraw_money(1700))
+print(account.show_info())
+print(account.withdraw_money(1400))
 print()
