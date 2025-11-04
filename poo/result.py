@@ -31,3 +31,23 @@ print(account.withdraw_money(1700))
 print(account.show_info())
 print(account.withdraw_money(1400))
 print()
+
+# Ejercicio 4
+
+print("============= Ejercicio 4 =============")
+
+coffe_machine = Cafetera("Nescafé", 3, 1.5)
+print(coffe_machine.serve_coffee(0.225))
+print(coffe_machine.fill_coffee())
+print(coffe_machine.check_coffee())
+print()
+
+# Ejercicio 5
+
+print("============= Ejercicio 5 =============")
+
+rest = Restaurante("Billio's", "Any", {"PIZZA EVA": 11.99, "BILLIO'S IBÉRICA": 10.99})
+
+print(rest.addPlate({"PaniAlcide": 13.99}))
+rest.showMenu()
+print(rest.orderAPlate())

@@ -1,13 +1,11 @@
-from classes import CuentaBancaria, Type
-# Ejercicio 3
+from classes import Restaurante
+# Ejercicio 5
 
-print("============= Ejercicio 3 =============")
+print("============= Ejercicio 5 =============")
 
-account = CuentaBancaria("Ana Pérez", 1000, Type.AHORROS)
+rest = Restaurante("Billio's", "Any", {"PIZZA EVA": 11.99, "BILLIO'S IBÉRICA": 10.99})
 
-print(account.deposit_money(500))
-print(account.show_info())
-print(account.withdraw_money(1700))
-print(account.show_info())
-print(account.withdraw_money(1400))
+print(rest.addPlate({"PaniAlcide": 13.99}))
+rest.showMenu()
+print(rest.orderAPlate())
 print()
