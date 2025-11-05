@@ -1,11 +1,10 @@
-from classes import Restaurante
-# Ejercicio 5
+from classes import Reloj
+# Ejercicio 10
 
-print("============= Ejercicio 5 =============")
+print("============= Ejercicio 10 =============")
 
-rest = Restaurante("Billio's", "Any", {"PIZZA EVA": 11.99, "BILLIO'S IBÉRICA": 10.99})
-
-print(rest.addPlate({"PaniAlcide": 13.99}))
-rest.showMenu()
-print(rest.orderAPlate())
+reloj = Reloj(10, 61, 120)
+print(reloj.show_time())
+print(reloj.advance_time('m'))
+print(reloj.show_time())
 print()
