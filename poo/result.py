@@ -1,4 +1,5 @@
 from classes import *
+from sistems import *
 
 # Ejercicio 1
 
@@ -107,4 +108,76 @@ reloj = Reloj(10, 61, 120)
 print(reloj.show_time())
 print(reloj.advance_time('m'))
 print(reloj.show_time())
+print()
+
+# Ejercicio de Sistemas 1
+
+print("========= Ejercicio de Sistemas 1 =========")
+
+car = Coche("Toyota", "Corolla", 2020)
+motorbike = Motocicleta("Yamaha", "MT-07", 2019)
+bicycle = Bicicleta("Giant", "Escape 3", 2021)
+print(car.claxon())
+print(motorbike.claxon())
+print(bicycle.claxon())
+print(bicycle.pedalear())
+
+print()
+
+# Ejercicio de Sistemas 2
+
+print("========= Ejercicio de Sistemas 2 =========")
+
+perro = Perro("Rex", 5)
+gato = Gato("Miau", 3)
+pajaro = Pajaro("Tweety", 1)
+
+print(perro.make_sound())
+print(gato.make_sound())
+print(pajaro.make_sound())
+
+print()
+
+# Ejercicio de Sistemas 3
+
+print("========= Ejercicio de Sistemas 3 =========")
+
+square = Cuadrado("Rojo", 4)
+triangle = Triangulo("Azul", 3, 4, [3, 4, 5])
+circle = Circulo("Verde", 5)
+
+print(f"Cuadrado - Área: {square.calcular_area()}, Perímetro: {square.calcular_perimetro()}")
+print(f"Triángulo - Área: {triangle.calcular_area()}, Perímetro: {triangle.calcular_perimetro()}")
+print(f"Círculo - Área: {circle.calcular_area()}, Perímetro: {circle.calcular_perimetro()}")
+
+print()
+
+# Ejercicio de Sistemas 4
+
+print("========= Ejercicio de Sistemas 4 =========")
+
+ropa = Ropa("Camisa", 20, 2, "M")
+alimento = Alimento("Manzana", 1, 10, "2025-12-31")
+electrodomestico = Electrodomestico("Lavadora", 300, 1, True)
+
+print(ropa.calculate_amount(10))
+print(alimento.calculate_amount())
+print(electrodomestico.calculate_amount())
+
+# Ejercicio de Sistemas 5
+
+print("========= Ejercicio de Sistemas 5 =========")
+
+student = Estudiante("Ana", 20, "Mujer", "Ingeniería")
+teacher = Profesor("Luis", 45, "Hombre", "Matemáticas")
+headmaster = Director("María", 50, "Mujer", 10)
+
+print(student.study("Física"))
+print(teacher.teach())
+print(headmaster.manage())
+
+print(student)
+print(teacher)
+print(headmaster)
+
 print()
