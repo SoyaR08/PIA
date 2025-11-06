@@ -1,6 +1,6 @@
 # Ejercicios propuestos de objetos y herencia
 
-## Ejercicios resueltos de objetos simples
+## Ejercicios resueltos de objetos simples y herencia
 
 - [Ejercicios de objetos simples](result.py)
 
