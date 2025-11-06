@@ -1,22 +1,27 @@
-import datetime
+from datetime import datetime, date
 
 # Ejercicio de Fechas 1
 
 print("========= Ejercicio de Fechas 1 =========")
 
-current_date = datetime.date.today().strftime("%d/%m/%Y")
+def getActualDate():
 
-print(f"Fecha actual: {current_date}")
+    date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    return date
+
+
+print(getActualDate())
 print()
 
 # Ejercicio de Fechas 2
 
 print("========= Ejercicio de Fechas 2 =========")
 
-def getActualDate():
+def stringToDatetime(string):
 
-    date = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-    return date
+    newDateTime = datetime.strptime(string, "%d/%m/%Y")
 
-print(getActualDate())
+    return newDateTime
+
+print(stringToDatetime("13/12/2005"))
 print()
