@@ -5,7 +5,7 @@ from datetime import datetime, date
 print("========= Ejercicio de Fechas 3 =========")
 
 def isInFormat(string, format=None):
-    formats = ["%d/%m/%Y", "%Y-%m-%d"]
+    formats = ["%d/%m/%Y", "%Y-%m-%d", "%d-%m-%Y", "%Y/%m/%d"]
 
     # Si no se pasa un formato, probamos todos
     if format is None:
@@ -19,7 +19,7 @@ def isInFormat(string, format=None):
 def diffamongdates(date1, date2):
 
     
-
+ 
     return ""
 
 print(isInFormat("2025-04-12"))
