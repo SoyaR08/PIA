@@ -1,27 +1,13 @@
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
-# Ejercicio de Fechas 3
+# Ejercicio de Fechas 5
 
-print("========= Ejercicio de Fechas 3 =========")
+print("========= Ejercicio de Fechas 5 =========")
 
-def isInFormat(string, format=None):
-    formats = ["%d/%m/%Y", "%Y-%m-%d", "%d-%m-%Y", "%Y/%m/%d"]
+def changeFormat(dateGiven):
+    return dateGiven.strftime("%d/%m/%Y")
 
-    # Si no se pasa un formato, probamos todos
-    if format is None:
-        for fmt in formats:
-            try:
-                return datetime.strptime(string, fmt)
-            except ValueError:
-                continue
-        return None  # no coincide con ninguno
 
-def diffamongdates(date1, date2):
-
-    
- 
-    return ""
-
-print(isInFormat("2025-04-12"))
-
+userDate = datetime.strptime("2025-12-31", "%Y-%m-%d")
+print(f"La fecha en formato dd/mm/yyyy es: {changeFormat(userDate)}")
 print()
