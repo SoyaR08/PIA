@@ -42,7 +42,8 @@ def decideWin(player_score, dealer_score):
 
     if player_score > dealer_score:
         print("Has ganado")
-
+    elif player_score == dealer_score:
+        print("Empate")
     else:
         print("Has perdido")
 
@@ -85,8 +86,8 @@ def blackjack():
         match user_option:
             case 's':
                 stay = True
-                if dealer_score < 17:
-                    while dealer_score < 17:
+                if dealer_score < player_score:
+                    while dealer_score < player_score:
                         dealer_cards.append(askForACard(deck))
                         dealer_score = calcScore(dealer_cards)
                 decideWin(player_score, dealer_score)
