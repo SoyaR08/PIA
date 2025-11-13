@@ -1,6 +1,6 @@
 import random
 
-def getCards():
+def getCards(deck):
 
     given_cards = []
 
@@ -12,10 +12,13 @@ def getCards():
     return given_cards
 
 def formatDeck(deck, score):
-    formatedDeck = f"{deck[0]} y {deck[1]}, suman {score} puntos"
+    # Unimos todas las cartas con comas y una 'y' antes de la última
+    if len(deck) > 1:
+        cartas = ', '.join(deck[:-1]) + f" y {deck[-1]}"
+    else:
+        cartas = deck[0]
     
-
-    return formatedDeck
+    return f"{cartas}, suman {score} puntos"
 
 def calcScore(hand):
     card_values = {"A": 11, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10}
@@ -30,7 +33,7 @@ def calcScore(hand):
 
     return total_score
 
-def askForACard():
+def askForACard(deck):
     card = random.choice(deck)
     deck.remove(card)
     return card
@@ -43,54 +46,52 @@ def decideWin(player_score, dealer_score):
     else:
         print("Has perdido")
 
+def blackjack():
 
-stay = False
-ended = False
-
-
-deck = ["K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"] * 4
+    stay = False
+    ended = False
 
 
-player_cards = getCards()
-dealer_cards = getCards()
+    deck = ["K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"] * 4
 
 
+    player_cards = getCards(deck)
+    dealer_cards = getCards(deck)
 
-user_option = ""
 
-while not stay and not ended:
-    player_score = calcScore(player_cards)
-    dealer_score = calcScore(dealer_cards)
-    
-    if player_score > 21:
-        ended = True
-        print(f"Has perdido... ({player_score})")
+    user_option = ""
 
-    elif dealer_score > 21:
-        ended = True
-        print("Has ganado")
+    while not stay and not ended:
+        player_score = calcScore(player_cards)
+        dealer_score = calcScore(dealer_cards)
+        
+        if player_score > 21:
+            ended = True
+            print(f"Has perdido... ({player_score})")
 
-    if not ended:
-        print(f"Tienes {formatDeck(player_cards,player_score)}")
-        print(f"El dealer tiene {formatDeck(dealer_cards,dealer_score)}")
-        print()
-        user_option = input("¿Que deseas hacer, plantarte (s) o pedir carta (a)? ").lower()
+        elif dealer_score > 21:
+            ended = True
+            print("Has ganado")
+
+        if not ended:
+            print(f"Tienes {formatDeck(player_cards,player_score)}")
+            print(f"El dealer tiene {formatDeck(dealer_cards,dealer_score)}")
+            print()
+            user_option = input("¿Que deseas hacer, plantarte (s) o pedir carta (a)? ").lower()
+
+        while user_option not in ['s', 'a']:
+            user_option = input("Opción no válida. Escribe 's' para plantarte o 'a' para pedir carta: ").lower()
 
         match user_option:
-
             case 's':
                 stay = True
-
                 if dealer_score < 17:
                     while dealer_score < 17:
-                        dealer_cards.append(askForACard())
-                        calcScore(dealer_cards)
-
+                        dealer_cards.append(askForACard(deck))
+                        dealer_score = calcScore(dealer_cards)
                 decideWin(player_score, dealer_score)
                 
-
             case 'a':
-                player_cards.append(askForACard())
-            
+                player_cards.append(askForACard(deck))
 
-
+blackjack()
