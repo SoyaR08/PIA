@@ -1,5 +1,6 @@
 import random
 import math
+from blackjack import blackjack
 
 # Ejercicio de Random y Math 1
 
@@ -25,6 +26,7 @@ else:
 
 print()
 
+# Ejercicio de Random y Math 3
 print("========= Ejercicio de Random y Math 3 =========")
 
 values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
@@ -37,3 +39,27 @@ for _ in range(5):
     cards.append(card)
 
 print("Cartas seleccionadas: ", cards)
+print()
+
+# Ejercicio de Random y Math 5
+print("========= Ejercicio de Random y Math 5 =========")
+blackjack() # Too much code to copy here so i made an apart archive and call the function
+print()
+
+# Ejercicio de Random y Math 6
+print("========= Ejercicio de Random y Math 6 =========")
+
+options = ['1', 'X', '2']
+
+
+for i in range(15):
+    choice = random.choice(options)
+
+    match choice:
+        case '1':
+            print(f"Partida {i+1}. Ha ganado el local")
+        case 'X':
+            print(f"Partida {i+1}. Empate")
+        case '2':
+            print(f"Partida {i+1}. Ha ganado el visitante")
+print()
