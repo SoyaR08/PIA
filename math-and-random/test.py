@@ -12,4 +12,9 @@ for i in range(6):
     number_series += " " + str(choice)
     possible_numbers.remove(choice)
 
+complementary = random.choice(possible_numbers)
+reinteger = random.randint(0, 9)
+
+number_series = f"{number_series} [{complementary}] [{reinteger}]"
+
 print(number_series)
