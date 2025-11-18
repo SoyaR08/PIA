@@ -1,0 +1,44 @@
+{
+  "eventos": [
+    {
+      "titulo": "Conferencia Python",
+      "fecha": "2024-11-15",
+      "ubicacion": "Madrid",
+      "organizador": "PyCon España"
+    },
+    {
+      "titulo": "Taller de IA",
+      "fecha": "2024-12-01",
+      "ubicacion": "Barcelona",
+      "organizador": "TechFest"
+    }
+  ],
+  "peliculas": [
+    {
+      "titulo": "El Laberinto del Fauno",
+      "director": "Guillermo del Toro",
+      "año": 2006,
+      "genero": "Fantasía"
+    },
+    {
+      "titulo": "Mar Adentro",
+      "director": "Alejandro Amenábar",
+      "año": 2004,
+      "genero": "Drama"
+    }
+  ],
+  "superheroes": [
+    {
+      "alias": "El Cid",
+      "habilidades": ["esgrima", "estrategia"],
+      "ciudad": "Burgos",
+      "equipo": "Los Defensores"
+    },
+    {
+      "alias": "La Dama de Plata",
+      "habilidades": ["manipulación de metales"],
+      "ciudad": "Toledo",
+      "equipo": "Los Defensores"
+    }
+  ]
+}

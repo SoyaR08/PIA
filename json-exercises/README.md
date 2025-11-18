@@ -26,7 +26,7 @@ Información sobre ventas, incluyendo producto, cantidad vendida, precio y fecha
 Incorpora al menos 10 ventas al registro 
 Calcular el total de ventas, filtrar por fecha o producto, agregar nuevas ventas. 
 
-JSON: 
+**JSON:** 
 
 
 ## EJERCICIO: Información de Alumnos 
@@ -34,7 +34,7 @@ Datos sobre estudiantes, incluyendo nombre, edad, calificación y ciudad. Insert
 menos 10 alumnos al fichero JSON. 
 Filtrar alumnos aprobados, calcular la edad promedio, agregar y eliminar alumnos. 
 
-JSON: 
+**JSON:**
 
 
 ## EJERCICIO: Concesionario de Coches 
@@ -42,7 +42,7 @@ Lista de coches disponibles en un concesionario con detalles como marca, modelo,
 precio y año. El registro del concesionario debe contener al menos 10 vehículos.  
 Filtrar por marca, calcular el valor promedio de los coches, actualizar precios. 
 
-JSON: cars_concessionary.json
+**JSON:** cars_concessionary.json
 
 
 ## EJERCICIO: Catálogo de Libros 
@@ -50,5 +50,25 @@ Contiene libros con título, autor, género y año de publicación. Insertar al 
 libros en el catálogo.  
 Filtrar por género o autor, agregar nuevos libros, listar libros recientes. 
 
-JSON: 
+**JSON:**
+
+## EJERCICIO: Agenda de Eventos 
+Listado de eventos con información como título, fecha, ubicación y organizador.
+Filtrar eventos por fecha o ubicación, agregar eventos futuros, eliminar eventos pasados.
+
+**JSON:**
+
+
+## EJERCICIO: Catálogo de Películas 
+Incluye películas con título, director, año de lanzamiento y género.
+Filtrar por género, listar directores únicos, agregar nuevas películas.
+
+**JSON:**
+
+
+## EJERCICIO: Red de Superhéroes 
+Contiene superhéroes con su alias, habilidades, ciudad de origen y equipo.
+Filtrar por ciudad o equipo, agregar nuevos superhéroes, listar habilidades únicas.
+
+**JSON:**
 
