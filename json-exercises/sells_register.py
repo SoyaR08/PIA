@@ -76,7 +76,7 @@ def addSell(data):
 
     return sell
 
-file = open("json-exercises/jsons/sells_register.json", "rt")
+file = open("jsons/sells_register.json", "rt")
 
 json_string = file.read()
 

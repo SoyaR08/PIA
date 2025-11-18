@@ -64,7 +64,7 @@ def listUniqueHabilities(data):
     return unique_habilities
 
 
-file = open("json-exercises/jsons/data.json", "rt")
+file = open("jsons/data.json", "rt")
 
 json_string = file.read()
 

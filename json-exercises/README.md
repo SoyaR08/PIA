@@ -1,3 +1,21 @@
+# Enunciados ejercicios propuestos de JSON
+
+**Disclaimer:** Los ejercicios están diseñados para ser ejecutados dentro de la carpeta json-exercises, si se quiere ejecutar fuera de la misma se deberá añadir json-exercises/ delante a cada ruta
+
+## Ejercicios resueltos de objetos simples y herencia
+
+- [Directorio Telefónico](result.py)
+- [Inventario de Productos](result.py)
+- [Agenda de Tareas](result.py)
+- [Registro de Ventas](result.py)
+- [Información de Alumnos](result.py)
+- [Concesionario de Coches](result.py)
+- [Catálogo de Libros](result.py)
+- [Agenda de Eventos ](result.py)
+- [Catálogo de Películas ](result.py)
+- [Red de Superhéroes ](result.py)
+
+
 ## EJERCICIO: Directorio Telefónico 
 Contiene contactos con campos como nombre, apellidos, teléfono y correo electrónico.
 Insertar al menos 10 registros telefónicos. 

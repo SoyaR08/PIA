@@ -27,7 +27,7 @@ def updateStock(data, productName):
     else:
         return "No se ha podido actualizar el stock"
 
-file = open("json-exercises/jsons/products_inventory.json", "rt")
+file = open("jsons/products_inventory.json", "rt")
 json_string = file.read()
 
 data = json.loads(json_string)

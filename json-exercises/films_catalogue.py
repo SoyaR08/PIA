@@ -45,7 +45,7 @@ def listUniqueDirectors(data):
     return unique_directors
 
 
-file = open("json-exercises/jsons/data.json", "rt")
+file = open("jsons/data.json", "rt")
 
 json_string = file.read()
 

@@ -56,7 +56,7 @@ def removePastEvents(data):
 
     
 
-file = open("json-exercises/jsons/data.json", "rt")
+file = open("jsons/data.json", "rt")
 
 json_string = file.read()
 

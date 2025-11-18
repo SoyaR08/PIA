@@ -49,7 +49,7 @@ def filterTasksByState(data, state):
     filtered_tasks = list(filter(lambda x: state.lower() in x["estado"].lower(), data))
     return filtered_tasks
 
-file = open("json-exercises/jsons/tasks_agenda.json", "rt")
+file = open("jsons/tasks_agenda.json", "rt")
 
 json_string = file.read()
 

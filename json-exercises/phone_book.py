@@ -22,7 +22,7 @@ def deleteContact(contact, contactList):
     contactList.remove(contact)
     return "Contacto eliminado"
 
-file = open("json-exercises/jsons/phone_book.json", "rt")
+file = open("jsons/phone_book.json", "rt")
 json_string = file.read()
 
 data = json.loads(json_string)
