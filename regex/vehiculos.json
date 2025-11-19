@@ -1,0 +1,16 @@
+[
+    {
+        "matricula": "1234ABC",
+        "marca": "Toyota",
+        "modelo": "Corolla",
+        "anyo": "2019",
+        "propietario_email": "propietario1@ejemplo.com"
+    },
+    {
+        "matricula": "567DEF",
+        "marca": "Honda",
+        "modelo": "Civic",
+        "anyo": "2021",
+        "propietario_email": "propietario2@prueba.com"
+    }
+]

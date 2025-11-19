@@ -1,0 +1,16 @@
+[
+    {
+        "nombre": "Ana Pérez",
+        "email": "ana.perez@ejemplo.com",
+        "telefono": "612345678",
+        "codigo_postal": "28013",
+        "curso": "DAW2"
+    },
+    {
+        "nombre": "Ana Pérez",
+        "email": "luis_garcia@prueba.es",
+        "telefono": "712345678",
+        "codigo_postal": "08001",
+        "curso": "DAW1"
+    }
+]
