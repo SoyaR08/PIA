@@ -1,6 +1,5 @@
 import json
 import random as rd
-from datetime import date as dt
 
 def insert10Students(data):
 

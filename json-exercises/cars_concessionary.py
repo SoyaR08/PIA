@@ -1,6 +1,5 @@
 import json
 import random as rd
-from datetime import date as dt
 
 def insertCars(data):
 
@@ -29,18 +28,26 @@ def calcMediaValue(data):
 def filterByBrand(data, brand):
     return list(filter(lambda car: brand.replace(" ", "").lower() in car["marca"].replace(" ", "").lower(), data))
 
-def findCarByBrand(data, given_car):
+def findCar(data, given_car):
     filtered_data = list(filter(lambda car: car == given_car, data))
 
     return filtered_data[0] if len(filtered_data) > 0 else None
 
 def updatePrize(data, car):
-    car = findCarByBrand(data, car)
-    isThere = True if not isinstance(car, None.__class__) else False
+    finded_car = findCar(data, car)
+    isThere = True if not isinstance(finded_car, None.__class__) else False
 
     if isThere:
-        data.remove(car)
-        return f"Se ha eliminado a {car}"
+        newPrize = ""
+        while not isinstance(newPrize, int):
+            try:
+                newPrize = int(input("Introduce el nuevo precio del coche: "))
+            except Exception:
+                pass
+
+        finded_car["precio"] = newPrize
+        return f"Se ha actualizado el precio a {newPrize}"
+
     
     else:
         return "No se ha encontrado al estudiante"
@@ -52,4 +59,11 @@ json_string = file.read()
 data = json.loads(json_string)
 insertCars(data["coches"])
 print(calcMediaValue(data["coches"]))
-print(filterByBrand(data["coches"], "ferrari"))
+print(filterByBrand(data["coches"], "Toyota"))
+print(updatePrize(data["coches"], {
+            "marca": "Toyota",
+            "modelo": "Corolla",
+            "precio": 20000,
+            "year": 2023
+        }))
+print(data["coches"])
