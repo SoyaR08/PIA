@@ -4,16 +4,16 @@
 
 ## Ejercicios resueltos de objetos simples y herencia
 
-- [Directorio Telefónico](result.py)
-- [Inventario de Productos](result.py)
-- [Agenda de Tareas](result.py)
-- [Registro de Ventas](result.py)
-- [Información de Alumnos](result.py)
-- [Concesionario de Coches](result.py)
-- [Catálogo de Libros](result.py)
-- [Agenda de Eventos ](result.py)
-- [Catálogo de Películas ](result.py)
-- [Red de Superhéroes ](result.py)
+- [Directorio Telefónico](phone_book.py)
+- [Inventario de Productos](inventory.py)
+- [Agenda de Tareas](task_agenda.py)
+- [Registro de Ventas](sells_register.py)
+- [Información de Alumnos](students_info.py)
+- [Concesionario de Coches](cars_concessionary.py)
+- [Catálogo de Libros](books_catalogue.py)
+- [Agenda de Eventos ](events_agenda.py)
+- [Catálogo de Películas ](films_catalogue.py)
+- [Red de Superhéroes ](superhero_network.py)
 
 
 ## EJERCICIO: Directorio Telefónico 
