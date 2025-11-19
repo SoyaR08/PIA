@@ -4,13 +4,13 @@
             "marca": "Toyota",
             "modelo": "Corolla",
             "precio": 20000,
-            "año": 2023
+            "year": 2023
         },
         {
             "marca": "Ford",
             "modelo": "Focus",
             "precio": 18000,
-            "año": 2022
+            "year": 2022
         }
     ]
 }
