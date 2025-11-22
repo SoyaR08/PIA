@@ -55,7 +55,7 @@ def filterByField(data, field, value):
 
     return filtered_data
 
-file = open("json-exercises/jsons/books_catalogue.json", "rt")
+file = open("jsons/books_catalogue.json", "rt")
 
 json_string = file.read()
 

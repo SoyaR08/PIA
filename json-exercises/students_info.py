@@ -68,7 +68,7 @@ def addStudent(data):
 
     
 
-file = open("json-exercises/jsons/students_info.json", "rt")
+file = open("jsons/students_info.json", "rt")
 
 json_string = file.read()
 

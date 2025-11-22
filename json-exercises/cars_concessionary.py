@@ -52,7 +52,7 @@ def updatePrize(data, car):
     else:
         return "No se ha encontrado al estudiante"
 
-file = open("json-exercises/jsons/cars_concessionary.json", "rt")
+file = open("jsons/cars_concessionary.json", "rt")
 
 json_string = file.read()
 

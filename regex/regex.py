@@ -3,8 +3,8 @@ import re
 
 def load_data():
 
-    vehicles_file = open("regex/vehiculos.json", "rt")
-    students_file = open("regex/alumnos.json", "rt")
+    vehicles_file = open("vehiculos.json", "rt")
+    students_file = open("alumnos.json", "rt")
 
     json_vehicles = vehicles_file.read()
     json_students = students_file.read()
