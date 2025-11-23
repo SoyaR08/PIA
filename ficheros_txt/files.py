@@ -33,7 +33,7 @@ def create_index():
     first_line_register = {}
 
     # Abrimos el fichero
-    with open("ficheros_txt/el_quijote.txt", "rt", encoding="utf-8") as file:
+    with open("el_quijote.txt", "rt", encoding="utf-8") as file:
         # Recorremos línea a línea
         for line_num, line in enumerate(file, start=1):
             # Normalizamos la línea y separamos en palabras
@@ -77,7 +77,7 @@ def getLongestPhrases(text):
     return phrases[:5]
 
 
-with open("ficheros_txt/el_quijote.txt", "rt", encoding="utf-8") as file:
+with open("el_quijote.txt", "rt", encoding="utf-8") as file:
     data = file.read()
 
 
