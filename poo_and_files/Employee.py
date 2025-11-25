@@ -1,5 +1,4 @@
 from typing import final
-from Enterprise import Enterprise
 
 class Employee:
 
