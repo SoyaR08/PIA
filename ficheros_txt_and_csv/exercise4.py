@@ -97,7 +97,7 @@ def split_passed_students(students_list):
     return passed, failed
 
 
-file = "ficheros_txt_and_csv/calificaciones.csv"
+file = "calificaciones.csv"
 
 students = read_file(file)
 students = calc_final_grades(students)

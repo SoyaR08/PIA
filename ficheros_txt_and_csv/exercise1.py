@@ -1,5 +1,7 @@
 import os
 
+
+
 def build_table():
     try:
         n = int(input("Introduce un número entre 1 y 10: "))
@@ -7,13 +9,13 @@ def build_table():
             print("❌ El número debe estar entre 1 y 10.")
             return
         
-        filename = f"ficheros_txt_and_csv/tabla-{n}.txt"
+        filename = f"tabla-{n}.txt"
         
         with open(filename, "w") as f:
             for i in range(1, 11):
                 f.write(f"{n} x {i} = {n*i}\n")
         
-        print(f"✅ Tabla de multiplicar de {n} creada en {filename}")
+        print(f"Tabla de multiplicar de {n} creada en {filename}")
     
     except ValueError:
         print("Debes introducir un número entero.")
@@ -26,7 +28,7 @@ def read_table():
             print("El número debe estar entre 1 y 10.")
             return
         
-        filename = f"ficheros_txt_and_csv/tabla-{n}.txt"
+        filename = f"tabla-{n}.txt"
         
         if not os.path.exists(filename):
             print(f"El fichero {filename} no existe.")
@@ -49,7 +51,7 @@ def read_table_line():
             print("Los números deben estar entre 1 y 10.")
             return
         
-        filename = f"ficheros_txt_and_csv/tabla-{n}.txt"
+        filename = f"tabla-{n}.txt"
         
         if not os.path.exists(filename):
             print(f"El fichero {filename} no existe.")

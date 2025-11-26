@@ -1,12 +1,14 @@
 import csv
 import os
 
+data_file = "cotizacion.csv"
+stats_file = "stats.csv"
+
 def create_dict(data):
 
     requested_dict = {"Nombre": [], "Final": [], "Máximo": [], "Mínimo": [], "Volumen": [], "Efectivo": []}
 
     cleaned_data = data[1:]
-
     for line in cleaned_data:
         line = line.strip()
 
@@ -23,7 +25,7 @@ def create_dict(data):
     return requested_dict
 
 def write_in_csv(data_dict):
-    with open("ficheros_txt_and_csv/stats.csv", "a", encoding='utf-8', newline='') as csvfile:
+    with open(stats_file, "a", encoding='utf-8', newline='') as csvfile:
         writer = csv.writer(csvfile)
         for i in range(len(data_dict["Nombre"])):
             writer.writerow([
@@ -35,12 +37,12 @@ def write_in_csv(data_dict):
                 data_dict["Efectivo"][i]
             ])
 
-if not os.path.exists("ficheros_txt_and_csv/stats.csv"):
-    with open("ficheros_txt_and_csv/stats.csv", "w", encoding='utf-8', newline='') as csvfile:
+if not os.path.exists(stats_file):
+    with open(stats_file, "w", encoding='utf-8', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["Nombre", "Final", "Máximo", "Mínimo", "Volumen", "Efectivo"])
 
-with open("ficheros_txt_and_csv/cotizacion.csv", "r", encoding='utf-8') as csvfile:
+with open(data_file, "r", encoding='utf-8') as csvfile:
     
     data = csvfile.readlines()
     

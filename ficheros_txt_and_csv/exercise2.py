@@ -1,6 +1,6 @@
 import os
 
-FICHERO = "ficheros_txt_and_csv/listin.txt"
+FICHERO = "listin.txt"
 
 
 def create_file():
