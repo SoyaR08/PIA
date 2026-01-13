@@ -23,7 +23,7 @@ def validate_x_numeric_items(data, x):
 
     character = ","
 
-    if not character in data:
+    if x != 1 and not character in data:
         print("El separador debe ser una coma")
         return False
     
