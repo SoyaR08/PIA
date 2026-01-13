@@ -30,12 +30,13 @@ for n in students_names:
     students[n] = transform_to_numeric_list(students_califications)
     students_califications = []
 
-print(students)
+
 series = pd.Series(students)
-print(series)
 mean = series.explode().astype(float).mean()
 median = series.explode().astype(float).median()
 std = series.explode().astype(float).std()
 print(f"La media de las calificaciones es: {mean}, la mediana es: {median} y la desviación estándar es: {std}")
+print(series)
+print(series.ge(50))
 
 
