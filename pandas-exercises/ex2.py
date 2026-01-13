@@ -36,7 +36,9 @@ mean = series.explode().astype(float).mean()
 median = series.explode().astype(float).median()
 std = series.explode().astype(float).std()
 print(f"La media de las calificaciones es: {mean}, la mediana es: {median} y la desviación estándar es: {std}")
+print(series.explode().astype(float).ge(50))
+series = series.apply(
+    lambda lst: ["Reprobado" if x < 50 else x for x in lst]
+)
 print(series)
-print(series.ge(50))
-
 
