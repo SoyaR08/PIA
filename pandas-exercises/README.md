@@ -61,3 +61,18 @@ clientes.
 3. Identifica los días sin lluvia (0 mm) y reemplázalos con "Sin precipitación".
 4. Calcula el total y el promedio de precipitaciones.
 5. Muestra los días con precipitación por encima del promedio.
+
+## Ejercicio 9: Registro de Visitas a una Página Web
+1. Pide al usuario que ingrese el número de visitas diarias a una página web durante 10 días.
+2. Crea una Serie con los datos.
+3. Calcula el total y el promedio de visitas diarias.
+4. Muestra los días con más visitas que el promedio y reemplaza los valores de visitas < 50 con "Baja visita".
+5. Grafica el número de visitas diarias.
+
+
+## Ejercicio 10: Análisis de Puntuaciones de Juegos
+1. Solicita al usuario las puntuaciones de un jugador en 8 rondas de un juego.
+2. Crea una Serie con las puntuaciones y asigna números de ronda como índice.
+3. Calcula la puntuación máxima, mínima y la diferencia entre la más alta y la más baja.
+4. Muestra las rondas en las que la puntuación es superior a 80.
+5. Ordena las puntuaciones de menor a mayor y muestra el ranking.
