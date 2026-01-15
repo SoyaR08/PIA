@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 
 visits = [120, None, 150, 90, 200, None, 170, 120, 160, None]
 
@@ -13,8 +15,33 @@ print(f"Número total de visitas: {total_visits}. Media diaria de visitas (días
 
 print(f"Días con visitas mayores a la media: {series[series > mean_visits].to_dict()}")
 
-series = series.apply(
+series_changed = series.apply(
     lambda x: "Baja visita" if pd.isna(x) or x < 50 else x
 )
 
-print(series)
+print(series_changed)
+
+plt.style.use('_mpl-gallery')
+
+# make data:
+x = series.index
+y = series.values
+
+# plot
+fig, ax = plt.subplots()
+
+ax.bar(x, y, width=1, edgecolor="white", linewidth=0.7)
+
+max_y = series.max()
+
+print(max_y)
+
+yticks = np.arange(0, max_y + 10, 210)
+
+xticks = series.index.tolist()
+
+
+ax.set(xlim=(1, series.idxmax()), xticks=xticks,
+       ylim=(0, max_y + 10), yticks=yticks)
+
+plt.show()
