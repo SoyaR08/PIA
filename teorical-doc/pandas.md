@@ -75,3 +75,53 @@ Podemos realizar el acceso a los elementos de una Serie bien mediante la posici�
 - describe(): Proporciona estadísticas resumidas de la serie.
 
 - value_counts(): Cuenta la frecuencia de los valores únicos.
+
+- sort_values(): Ordena los elementos de la serie por sus valores.
+
+- isnull(): Devuelve una serie booleana indicando si los valores son nulos (NaN).
+
+- notnull(): Devuelve una serie booleana indicando si los valores no son nulos.
+
+- unique(): Devuelve una serie con los valores únicos de la serie.
+
+- apply(): Aplica una función a cada elemento de la serie.
+
+- map(): Mapea los valores de una serie a través de una función o diccionario.
+
+- replace(): Reemplaza valores en la serie.
+
+- dropna(): Elimina los valores nulos de la serie.
+
+- fillna(): Rellena los valores nulos con un valor especificado.
+
+- astype(): Convierte el tipo de datos de la serie a uno especificado.
+
+- copy(): Devuelve una copia de la serie.
+
+- sort_index(): Ordena la serie por sus índices
+
+- sum(): Devuelve a suma de todos los elementos de la serie.
+
+- mean(): Devuelve el promedio de los elementos de la serie.
+
+- median(): Devuelve la mediana de la serie.
+
+- std(): Devuelve la desviación estándar de la serie.
+
+- min(): Devuelve el valor mínimo de la serie.
+
+- max(): Devuelve el valor máximo de la serie.
+
+- count(): Devuelve el número de elementos no nulos en la serie.
+
+- idxmin(): Devuelve el índice del valor mínimo de la serie.
+
+- dixmax(): Devuelve el índice del valor máximo de la serie.
+
+- cumsum(): Devuelve la suma acumulada de los elementos de la serie.
+
+- cumprod(): Devuelve el producto acumulado de los elementos de la serie.
+
+- pct_change(): Devuelve el cambio porcentual entre los elementos de la serie.
+
+- clip(): Limita
