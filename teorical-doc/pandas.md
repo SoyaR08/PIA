@@ -163,3 +163,24 @@ Podemos realizar el acceso a los elementos de una Serie bien mediante la posici�
 - combine_first(): Combina dos series, usando los valores no nulos de la primera serie.
 
 - align(): Alinea dos series para que tengan el mismo índice.
+
+## DataFrame
+
+Un objeto de tipo DataFrame define un conjunto de datos estructurado en forma de tabla, en la que cada columna es un objeto de tipos Series, es decir, todos los datos de una columna son del mismo tipo, y las filas son registros que pueden contener datos de distintos tipos.
+
+Un DataFrame contiene dos índices, uno para las filas y otro para las columnas, y se puede acceder a los elementos mediante los nombres de las filas y las columnas.
+
+```python
+import pandas as pd
+# DataFrame(data=diccionario, index=filas, columns=columnas, dtype=tipos)
+
+data = {
+    'nombre': ['María', 'Luis', 'Carmen'],
+    'edad': [18, 22, 20],
+    'grado': ['Economía', 'Medicina', 'Arquitectura'],
+    'correo': ['maria@gmail.com', 'luis@yahoo.es', 'carmen@gmail.com']
+}
+
+df = pd.DataFrame(data)
+
+```
