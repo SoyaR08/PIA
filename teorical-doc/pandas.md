@@ -170,6 +170,8 @@ Un objeto de tipo DataFrame define un conjunto de datos estructurado en forma de
 
 Un DataFrame contiene dos índices, uno para las filas y otro para las columnas, y se puede acceder a los elementos mediante los nombres de las filas y las columnas.
 
+### Crear DataFrame a partir de un diccionario de listas
+
 ```python
 import pandas as pd
 # DataFrame(data=diccionario, index=filas, columns=columnas, dtype=tipos)
@@ -183,4 +185,54 @@ data = {
 
 df = pd.DataFrame(data)
 
+```
+
+### Crear DataFrame a partir de una lista de listas
+
+```python
+import pandas as pd
+# DataFrame(data=listas, index=filas, columns=columnas, dtype=tipos)
+
+data = [
+    ['María', 18], ['Luís', 22], ['Carmen', 20]
+]
+
+df = pd.DataFrame(data, columns=['Nombre', 'Edad'])
+
+```
+
+### Crear DataFrame a partir de una lista de diccionarios
+
+```python
+import pandas as pd
+# DataFrame(data=diccionarios, index=filas, columns=columnas, dtype=tipos)
+
+data = [
+    {'nombre': 'María', 'edad': 18},
+    {'nombre': 'Luis', 'edad': 22},
+    {'nombre': 'Carmen', 'edad': 20}
+]
+
+df = pd.DataFrame(data)
+
+```
+
+### Crear DataFrame a partir de un Array
+```python
+import pandas as pd
+import numpy as np
+# DataFrame(data=array, index=filas, columns=columnas, dtype=tipos)
+
+data = np.random.randn(4, 3)
+
+df = pd.DataFrame(data, columns=['a', 'b', 'c'])
+```
+
+### Crear DataFrame a partir de un CSV o Excel
+```python
+import pandas as pd
+
+# read_excel(fichero.xlsx, sheet_name=hoja, header=n, index_col=m, na_values=no-validos, decimal=separador-decimal)
+
+df = pd.read_csv(link, sep=';', decimal=',')
 ```
