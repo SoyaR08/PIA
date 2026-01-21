@@ -13,22 +13,34 @@ def test_calculate_final_grade(passed_df, subjects):
 
     return passed_df
 
+def calculate_mean(dataframe, fields, desired_axis=1):
+
+    return dataframe[fields].mean(axis=desired_axis)
+
 # Descomentar si el código del ejercicio lo usa (Cntrl + U)
 subjects = ["Programación", "Base de Datos", "Lenguajes", "Sistemas", "Entornos"]
 
-# 8. Exporta a un archivo CSV los alumnos que han reprobado al menos un módulo.
+# 9. Crea un gráfico de dispersión que muestre la relación entre las notas finales de 'Programación' y 'Base de Datos'.
+import matplotlib.pyplot as plt
+import numpy as np
 
-# Copiamos el DataFrame original
-calc_subject_mean = df.copy()
+plt.style.use('_mpl-gallery')
 
-calc_subject_mean = test_calculate_final_grade(calc_subject_mean, ["Lenguajes"])
+# make the data
+np.random.seed(3)
+x = 4 + np.random.normal(0, 2, 24)
+y = 4 + np.random.normal(0, 2, len(x))
 
-# Nos quedamos solo con las columnas relevantes
-calc_subject_mean = calc_subject_mean[[
-    "Nombre", "Apellidos", "Lenguajes"
-]]
+# size and color:
+sizes = np.random.uniform(15, 80, len(x))
+colors = np.random.uniform(15, 80, len(x))
 
-# En mi caso solo no existe ese alumno, pero hay una alumna con 9.0 exactos
-greater_than_nine_df = calc_subject_mean.loc[calc_subject_mean["Lenguajes"] > 9]
+# plot
+fig, ax = plt.subplots()
 
-print(greater_than_nine_df if greater_than_nine_df.empty == False else "No hay alumnos con nota superior a 9 en Lenguajes.")
+ax.scatter(x, y, s=sizes, c=colors, vmin=0, vmax=100)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+
+plt.show()

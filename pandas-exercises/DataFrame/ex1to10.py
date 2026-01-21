@@ -2,6 +2,20 @@ import pandas as pd
 
 df = pd.read_excel('pandas-exercises/DataFrame/datos_alumnos.xlsx')
 
+def test_calculate_final_grade(passed_df, subjects):
+
+    for sub in subjects:
+        # Creamos la columna sub
+        passed_df[sub] = df[[ # Esto le dice que va a coger las columnas T1, T2 y T3 de sub
+            f"{sub} T1", f"{sub} T2", f"{sub} T3"
+        ]].mean(axis=1) # Mean hace la media y axis le dice si por fila (1) o por columna (0)
+
+    return passed_df
+
+def calculate_mean(dataframe, fields, desired_axis=1):
+
+    return dataframe[fields].mean(axis=desired_axis)
+
 # 1. Filtra a los alumnos que tienen 20 años o más y muestra sus notas finales.
 
 df_gt_20 = df.loc[df['Edad'] >= 20, [
@@ -13,15 +27,6 @@ print(df_gt_20)
 
 # 2. Añade una nueva columna llamada 'Aprobado' que indique si el alumno ha aprobado o no (si su promedio general es mayor o igual a 5).
 
-def test_calculate_final_grade(passed_df, subjects):
-
-    for sub in subjects:
-        # Creamos la columna sub
-        passed_df[sub] = df[[ # Esto le dice que va a coger las columnas T1, T2 y T3 de sub
-            f"{sub} T1", f"{sub} T2", f"{sub} T3"
-        ]].mean(axis=1) # Mean hace la media y axis le dice si por fila (1) o por columna (0)
-
-    return passed_df
 # Copiamos el DataFrame original
 new_df = df.copy()
 
@@ -153,3 +158,38 @@ approved = classroom_df[classroom_df["Aprobado"] == True]
 failed = classroom_df[classroom_df["Aprobado"] == False]
 
 print(f"Hay {approved.shape[0]} alumnos aprobados y {failed.shape[0]} alumnos suspensos.")
+
+# 8. Exporta a un archivo CSV los alumnos que han reprobado al menos un módulo.
+import os
+
+classroom_df = df.copy()
+
+# Promedios por asignatura (por alumno)
+classroom_df = test_calculate_final_grade(classroom_df, subjects)
+
+# Promedio general y aprobado
+classroom_df["Promedio"] = calculate_mean(classroom_df, subjects)
+
+# Nos quedamos solo con las columnas relevantes
+classroom_df = classroom_df[[
+    "Nombre", "Apellidos", "Promedio"
+]]
+
+classroom_df["Aprobado"] = classroom_df[[
+    "Promedio"
+]].mean(axis=1) >= 5 # Hace que la columna Aprobado sea True o False dependiendo si el promedio es mayor o igual a 5
+
+failed = classroom_df.loc[classroom_df["Aprobado"] == False, ["Nombre", "Apellidos", "Promedio"]]
+
+path = "pandas-exercises/DataFrame/csv/alumnos_suspensos.csv"
+
+if not os.path.exists(path):
+    with open(path, "x", encoding="utf-8") as f:
+        f.write(failed.to_csv(index=False))
+    print("Archivo creado y datos guardados.")
+
+else: 
+    with open(path, "at", encoding="utf-8") as f:
+        f.write(failed.to_csv(index=False))
+
+    print("Datos guardados.")
