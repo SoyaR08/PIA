@@ -78,56 +78,15 @@ print(result_df)
 # Copiamos el DataFrame original
 calc_subject_mean = df.copy()
 
-# Promedios por asignatura (por alumno)
-calc_subject_mean["Programación"] = df[[
-    "Programación T1", "Programación T2", "Programación T3"
-]].mean(axis=1)
-
-calc_subject_mean["Base de Datos"] = df[[
-    "Base de Datos T1", "Base de Datos T2", "Base de Datos T3"
-]].mean(axis=1)
-
-calc_subject_mean["Lenguajes"] = df[[
-    "Lenguajes T1", "Lenguajes T2", "Lenguajes T3"
-]].mean(axis=1)
-
-calc_subject_mean["Sistemas"] = df[[
-    "Sistemas T1", "Sistemas T2", "Sistemas T3"
-]].mean(axis=1)
-
-calc_subject_mean["Entornos"] = df[[
-    "Entornos T1", "Entornos T2", "Entornos T3"
-]].mean(axis=1)
-
-# Promedio general y aprobado
-calc_subject_mean["Aprobado"] = calc_subject_mean[[
-    "Programación", "Base de Datos", "Lenguajes",
-    "Sistemas", "Entornos"
-]].mean(axis=1) >= 5
+calc_subject_mean = test_calculate_final_grade(calc_subject_mean, ["Lenguajes"])
 
 # Nos quedamos solo con las columnas relevantes
 calc_subject_mean = calc_subject_mean[[
-    "Nombre", "Apellidos",
-    "Programación", "Base de Datos", "Lenguajes",
-    "Sistemas", "Entornos",
-    "Aprobado"
+    "Nombre", "Apellidos", "Lenguajes"
 ]]
 
-asignaturas = ["Lenguajes"] # Esto sirve para crear un DataFrame con los datos de las columnas que queremos
-notas = calc_subject_mean[asignaturas] # Creamos un nuevo DataFrame con las notas de las asignaturas
-
-idx_max = notas.idxmax(axis=0) # Esto es para obtener la nota o notas más altas
-data = { # Creamos un diccionario para usarlo de estructra para el DataFrame
-    
-    "Nombre": calc_subject_mean.loc[idx_max, "Nombre"].values, # Crea un array con los nombres de los alumnos con la nota más alta
-    "Apellidos": calc_subject_mean.loc[idx_max, "Apellidos"].values,
-    "Nota": notas.max(axis=0).values # Crea un array con los datos más altos de las filas
-}
-
-greater_than_nine_df = pd.DataFrame(data, index=asignaturas)
-greater_than_nine_df.index.name = None  # opcional, para que el índice sea limpio
-
-greater_than_nine_df = greater_than_nine_df.loc[greater_than_nine_df["Nota"] > 9]
+# En mi caso solo no existe ese alumno, pero hay una alumna con 9.0 exactos
+greater_than_nine_df = calc_subject_mean.loc[calc_subject_mean["Lenguajes"] > 9]
 
 print(greater_than_nine_df if greater_than_nine_df.empty == False else "No hay alumnos con nota superior a 9 en Lenguajes.")
 
@@ -167,3 +126,30 @@ find_prg_max_grade = find_prg_max_grade[[
 ]]
 
 print(find_prg_max_grade.sort_values(by="Programación", ascending=False).head(1))
+
+# 7. Agrupa a los alumnos según si han aprobado o no y cuenta cuántos alumnos hay en cada grupo.
+
+classroom_df = df.copy()
+
+# Promedios por asignatura (por alumno)
+classroom_df = test_calculate_final_grade(classroom_df, subjects)
+
+# Promedio general y aprobado
+classroom_df["Promedio"] = classroom_df[[
+    "Programación", "Base de Datos", "Lenguajes",
+    "Sistemas", "Entornos"
+]].mean(axis=1) # Hace que la columna Aprobado sea True o False dependiendo si el promedio es mayor o igual a 5
+
+# Nos quedamos solo con las columnas relevantes
+classroom_df = classroom_df[[
+    "Nombre", "Apellidos", "Promedio"
+]]
+
+classroom_df["Aprobado"] = classroom_df[[
+    "Promedio"
+]].mean(axis=1) >= 5 # Hace que la columna Aprobado sea True o False dependiendo si el promedio es mayor o igual a 5
+
+approved = classroom_df[classroom_df["Aprobado"] == True]
+failed = classroom_df[classroom_df["Aprobado"] == False]
+
+print(f"Hay {approved.shape[0]} alumnos aprobados y {failed.shape[0]} alumnos suspensos.")
