@@ -20,15 +20,23 @@ def calculate_mean(dataframe, fields, desired_axis=1):
 # Descomentar si el código del ejercicio lo usa (Cntrl + U)
 subjects = ["Programación", "Base de Datos", "Lenguajes", "Sistemas", "Entornos"]
 
-# 10. Calcula la desviación estándar del promedio general de las notas.
+# 13. Filtra los alumnos que tienen una edad mayor a 22 años y guarda este subconjunto en un nuevo archivo Excel.
 
-basic_df = df.copy()
+import os
 
-basic_df = test_calculate_final_grade(basic_df, subjects)
+df_copy = df.copy()
 
-cleared_df = basic_df[[
-    "Programación", "Base de Datos", "Lenguajes", "Sistemas", "Entornos"]]
+path = "pandas-exercises/DataFrame/csv/df_copy.csv"
 
-std_dev = cleared_df.mean(axis=0).std(axis=0)
+if not os.path.exists(path):
+    with open(path, "x", encoding="utf-8") as f:
+        f.write(df_copy.to_csv(index=False))
+    print("Archivo creado y datos guardados.")
 
-print(f"La desviación estándar del promedio general de las notas es: {std_dev}")
+else: 
+    with open(path, "wt", encoding="utf-8") as f:
+        f.write(df_copy.to_csv(index=False))
+
+    print("Datos guardados.")
+
+
