@@ -18,31 +18,30 @@ def calculate_mean(dataframe, fields, desired_axis=1):
 
     return dataframe[fields].mean(axis=desired_axis)
 
+def write_in_excel(dataframe, path):
+
+    if not os.path.exists(path):
+        dataframe.to_excel(path, index=False)
+        print("Archivo creado y datos guardados.")
+    else:
+        dataframe.to_excel(path, index=False)
+        print("Datos sobrescritos.")
+
+    
+
 # Descomentar si el código del ejercicio lo usa (Cntrl + U)
 subjects = ["Programación", "Base de Datos", "Lenguajes", "Sistemas", "Entornos"]
 
-# 19. Fusiona los datos de dos archivos Excel con datos de alumnos y guarda el resultado combinado en un nuevo archivo.
+# 20. Exporta un DataFrame a Excel y asegúrate de formatear los valores de las notas con dos decimales.
 
-df_excel1 = pd.read_excel('pandas-exercises/DataFrame/datos_alumnos.xlsx')
-df_excel2 = pd.read_excel('pandas-exercises/DataFrame/excel/df_final_excel.xlsx')
+df_final_excel = df.copy()
 
-fields_to_merge = ["Nombre", "Apellidos", "Correo", "Edad"]
+df_final_excel = test_calculate_final_grade(df_final_excel, subjects)
 
-df_merged = pd.merge(df_excel1, df_excel2, on=fields_to_merge, how='outer')
+df_final_excel = df_final_excel[["Nombre", "Apellidos", "Edad", "Correo"] + subjects]
 
-df_merged.rename(columns={
-    "Programación": "Programación Nota Final",
-    "Base de Datos": "Base de Datos Nota Final",
-    "Lenguajes": "Lenguajes Nota Final",
-    "Sistemas": "Sistemas Nota Final",
-    "Entornos": "Entornos Nota Final"
-}, inplace=True)
+df_final_excel[subjects] = df_final_excel[subjects].round(2)
 
-path = "pandas-exercises/DataFrame/excel/df_merged.xlsx"
+path = "pandas-exercises/DataFrame/excel/df_final_excel.xlsx"
 
-if not os.path.exists(path):
-    df_merged.to_excel(path, index=False)
-    print("Archivo creado y datos guardados.")
-else:
-    df_merged.to_excel(path, index=False)
-    print("Datos sobrescritos.")
+write_in_excel(df_final_excel, path)

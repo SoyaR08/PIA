@@ -16,6 +16,16 @@ def calculate_mean(dataframe, fields, desired_axis=1):
 
     return dataframe[fields].mean(axis=desired_axis)
 
+def write_in_excel(dataframe, path):
+
+    if not os.path.exists(path):
+        dataframe.to_excel(path, index=False)
+        print("Archivo creado y datos guardados.")
+    else:
+        dataframe.to_excel(path, index=False)
+        print("Datos sobrescritos.")
+
+
 subjects = ["Programación", "Base de Datos", "Lenguajes", "Sistemas", "Entornos"]
 
 # 11. Carga un archivo Excel con datos de alumnos en un DataFrame y muestra los primeros 5 registros.
@@ -196,12 +206,7 @@ df_merged.rename(columns={
 
 path = "pandas-exercises/DataFrame/excel/df_merged.xlsx"
 
-if not os.path.exists(path):
-    df_merged.to_excel(path, index=False)
-    print("Archivo creado y datos guardados.")
-else:
-    df_merged.to_excel(path, index=False)
-    print("Datos sobrescritos.")
+write_in_excel(df_merged, path)
 
 # 20. Exporta un DataFrame a Excel y asegúrate de formatear los valores de las notas con dos decimales.
 
@@ -215,9 +220,4 @@ df_final_excel[subjects] = df_final_excel[subjects].round(2)
 
 path = "pandas-exercises/DataFrame/excel/df_final_excel.xlsx"
 
-if not os.path.exists(path):
-    df_final_excel.to_excel(path, index=False)
-    print("Archivo creado y datos guardados.")
-else:
-    df_final_excel.to_excel(path, index=False)
-    print("Datos sobrescritos.")
+write_in_excel(df_final_excel, path)
