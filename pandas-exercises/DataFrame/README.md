@@ -26,8 +26,6 @@
 
 ## Ejercicios para trabajar con archivos Excel y CSV
 
-
-
 11. Carga un archivo Excel con datos de alumnos en un DataFrame y muestra los primeros 5 registros.
 
 12. Guarda una copia del archivo Excel en un archivo CSV.
