@@ -20,37 +20,15 @@ def calculate_mean(dataframe, fields, desired_axis=1):
 # Descomentar si el código del ejercicio lo usa (Cntrl + U)
 subjects = ["Programación", "Base de Datos", "Lenguajes", "Sistemas", "Entornos"]
 
-# 9. Crea un gráfico de dispersión que muestre la relación entre las notas finales de 'Programación' y 'Base de Datos'.
-import matplotlib.pyplot as plt
-import numpy as np
+# 10. Calcula la desviación estándar del promedio general de las notas.
 
-students_df = df.copy()
+basic_df = df.copy()
 
-students_df = test_calculate_final_grade(students_df, ["Programación", "Base de Datos"])
+basic_df = test_calculate_final_grade(basic_df, subjects)
 
-students_df = students_df[[
-    "Nombre", "Apellidos", "Programación", "Base de Datos"
-]]
+cleared_df = basic_df[[
+    "Programación", "Base de Datos", "Lenguajes", "Sistemas", "Entornos"]]
 
-print(students_df)
+std_dev = cleared_df.mean(axis=0).std(axis=0)
 
-plt.style.use('_mpl-gallery')
-
-# make the data
-# np.random.seed(3)
-# x = 4 + np.random.normal(0, 2, 24)
-# y = 4 + np.random.normal(0, 2, len(x))
-
-# # size and color:
-# sizes = np.random.uniform(15, 80, len(x))
-# colors = np.random.uniform(15, 80, len(x))
-
-# # plot
-# fig, ax = plt.subplots()
-
-# ax.scatter(x, y, s=sizes, c=colors, vmin=0, vmax=100)
-
-# ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
-#        ylim=(0, 8), yticks=np.arange(1, 8))
-
-# plt.show()
+print(f"La desviación estándar del promedio general de las notas es: {std_dev}")

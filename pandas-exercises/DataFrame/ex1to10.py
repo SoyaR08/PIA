@@ -193,3 +193,56 @@ else:
         f.write(failed.to_csv(index=False))
 
     print("Datos guardados.")
+
+# 9. Crea un gráfico de dispersión que muestre la relación entre las notas finales de 'Programación' y 'Base de Datos'.
+import matplotlib.pyplot as plt
+import numpy as np
+
+students_df = df.copy()
+
+students_df = test_calculate_final_grade(students_df, ["Programación", "Base de Datos"])
+
+students_df = students_df[[
+    "Nombre", "Apellidos", "Programación", "Base de Datos"
+]]
+
+plt.style.use('_mpl-gallery')
+
+# Datos
+x = students_df["Programación"]
+y = students_df["Base de Datos"]
+
+# size and color:
+sizes = np.random.uniform(15, 80, len(x))
+colors = np.random.uniform(15, 80, len(x))
+
+# plot
+fig, ax = plt.subplots()
+
+ax.scatter(x, y, s=sizes, c=colors, vmin=0, vmax=10)
+
+
+# Límites y ticks
+ax.set(xlim=(0, 10), xticks=np.arange(0, 11),
+       ylim=(0, 10), yticks=np.arange(0, 11))
+
+# Etiquetas y título (aquí está la clave)
+ax.set_xlabel("Notas Finales de Programación")
+ax.set_ylabel("Notas Finales de Base de Datos")
+ax.set_title("Relación entre Notas Finales de Programación y Base de Datos")
+
+plt.tight_layout()
+plt.show()
+
+# 10. Calcula la desviación estándar del promedio general de las notas.
+
+basic_df = df.copy()
+
+basic_df = test_calculate_final_grade(basic_df, subjects)
+
+cleared_df = basic_df[[
+    "Programación", "Base de Datos", "Lenguajes", "Sistemas", "Entornos"]]
+
+std_dev = cleared_df.mean(axis=0).std(axis=0)
+
+print(f"La desviación estándar del promedio general de las notas es: {std_dev}")
