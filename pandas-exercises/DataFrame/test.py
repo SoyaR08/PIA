@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-df = pd.read_excel('pandas-exercises/DataFrame/datos_alumnos.xlsx')
+df = pd.read_excel('datos_alumnos.xlsx')
 
 # Descomentar si el código del ejercicio lo usa (Cntrl + U)
 def test_calculate_final_grade(passed_df, subjects):
@@ -42,6 +42,6 @@ df_final_excel = df_final_excel[["Nombre", "Apellidos", "Edad", "Correo"] + subj
 
 df_final_excel[subjects] = df_final_excel[subjects].round(2)
 
-path = "pandas-exercises/DataFrame/excel/df_final_excel.xlsx"
+path = "excel/df_final_excel.xlsx"
 
 write_in_excel(df_final_excel, path)

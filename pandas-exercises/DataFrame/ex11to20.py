@@ -1,6 +1,7 @@
 import pandas as pd
+import os
 
-df = pd.read_excel('pandas-exercises/DataFrame/datos_alumnos.xlsx')
+df = pd.read_excel('datos_alumnos.xlsx')
 
 def test_calculate_final_grade(passed_df, subjects):
 
@@ -36,11 +37,9 @@ print(loaded_df.head())
 
 # 12. Guarda una copia del archivo Excel en un archivo CSV.
 
-import os
-
 df_copy = df.copy()
 
-path = "pandas-exercises/DataFrame/csv/df_copy.csv"
+path = "csv/df_copy.csv"
 
 if not os.path.exists(path):
     with open(path, "x", encoding="utf-8") as f:
@@ -57,7 +56,7 @@ else:
 
 df_gt22 = df.copy().loc[df['Edad'] > 22]
 
-path = "pandas-exercises/DataFrame/excel/df_gt22.xlsx"
+path = "excel/df_gt22.xlsx"
 
 if not os.path.exists(path):
     df_gt22.to_excel(path, index=False)
@@ -81,7 +80,7 @@ columns = ["Programación T1", "Programación T2", "Programación T3",
 
 df_from_csv[columns] = (df[columns] + 1).clip(upper=10)
 
-path = "pandas-exercises/DataFrame/csv/df_mod.csv"
+path = "csv/df_mod.csv"
 
 if not os.path.exists(path):
     with open(path, "x", encoding="utf-8") as f:
@@ -99,7 +98,7 @@ print(df_from_csv)
 
 # 15. Lee un archivo CSV con datos de alumnos y calcula el promedio de las notas de un módulo específico.
 
-df_from_csv = pd.read_csv('pandas-exercises/DataFrame/csv/df_copy.csv')
+df_from_csv = pd.read_csv('csv/df_copy.csv')
 
 df_from_csv = test_calculate_final_grade(df_from_csv, subjects)
 
@@ -127,7 +126,7 @@ df_ages = df_ages[["Edad", "Promedio"]]
 
 df_ages = df_ages.groupby('Edad').mean(numeric_only=True)
 
-path = "pandas-exercises/DataFrame/excel/df_ages.xlsx"
+path = "excel/df_ages.xlsx"
 
 if not os.path.exists(path):
     df_ages.to_excel(path, index=True)
@@ -138,7 +137,7 @@ else:
 
 # 17. Añade una nueva columna al archivo CSV para indicar si el alumno está en el grupo de honor (promedio general superior a 9).
 
-df_final = pd.read_csv('pandas-exercises/DataFrame/csv/df_copy.csv')
+df_final = pd.read_csv('csv/df_copy.csv')
 
 df_final = test_calculate_final_grade(df_final, subjects)
 
@@ -148,7 +147,7 @@ df_final["Promedio"] = df_final[subjects].mean(axis=1)
 
 df_final["Grupo de Honor"] = df_final["Promedio"] > 9
 
-path = "pandas-exercises/DataFrame/csv/df_final.csv"
+path = "csv/df_final.csv"
 
 if not os.path.exists(path):
     with open(path, "x", encoding="utf-8") as f:
@@ -166,7 +165,7 @@ print(df_final)
 
 # 18. Carga un archivo Excel, calcula la nota mínima de cada módulo y guarda el resultado en un archivo CSV.
 
-df_min_module_grade = pd.read_csv('pandas-exercises/DataFrame/csv/df_copy.csv')
+df_min_module_grade = pd.read_csv('csv/df_copy.csv')
 
 df_min_module_grade = test_calculate_final_grade(df_min_module_grade, subjects)
 
@@ -174,7 +173,7 @@ df_min_module_grade = df_min_module_grade[["Nombre", "Apellidos", "Correo", "Eda
 
 min_grades = df_min_module_grade[subjects].min()
 
-path = "pandas-exercises/DataFrame/csv/df_min_module_grade.csv"
+path = "csv/df_min_module_grade.csv"
 
 if not os.path.exists(path):
     with open(path, "x", encoding="utf-8") as f:
@@ -189,8 +188,8 @@ else:
 
 # 19. Fusiona los datos de dos archivos Excel con datos de alumnos y guarda el resultado combinado en un nuevo archivo.
 
-df_excel1 = pd.read_excel('pandas-exercises/DataFrame/datos_alumnos.xlsx')
-df_excel2 = pd.read_excel('pandas-exercises/DataFrame/excel/df_final_excel.xlsx')
+df_excel1 = pd.read_excel('datos_alumnos.xlsx')
+df_excel2 = pd.read_excel('excel/df_final_excel.xlsx')
 
 fields_to_merge = ["Nombre", "Apellidos", "Correo", "Edad"]
 
@@ -204,7 +203,7 @@ df_merged.rename(columns={
     "Entornos": "Entornos Nota Final"
 }, inplace=True)
 
-path = "pandas-exercises/DataFrame/excel/df_merged.xlsx"
+path = "excel/df_merged.xlsx"
 
 write_in_excel(df_merged, path)
 
@@ -218,6 +217,6 @@ df_final_excel = df_final_excel[["Nombre", "Apellidos", "Edad", "Correo"] + subj
 
 df_final_excel[subjects] = df_final_excel[subjects].round(2)
 
-path = "pandas-exercises/DataFrame/excel/df_final_excel.xlsx"
+path = "excel/df_final_excel.xlsx"
 
 write_in_excel(df_final_excel, path)
