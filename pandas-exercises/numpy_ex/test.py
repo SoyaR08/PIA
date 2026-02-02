@@ -4,8 +4,8 @@ import numpy as np
 
 # Tarea - Ejercicios NumPy
 
-# 3. Crear un array de 10 ceros.
+# 5. Crear matriz 3x3 con valores del 0 a 8.
 
-zeros_v = np.zeros(10)
+m = np.arange(0, 9).reshape(3, 3)
 
-print(zeros_v)
+print(m)
