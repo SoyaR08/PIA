@@ -74,3 +74,63 @@ print(three_dim_array)
 mix_element, max_element = three_dim_array.min(), three_dim_array.max()
 
 print(f"Elemento mínimo: {mix_element}. Elemento máximo: {max_element}")
+
+# 13. Indicar los índices (posición) de los valores mínimos y máximos del array
+
+min_index = np.unravel_index(three_dim_array.argmin(), three_dim_array.shape) #argmin convierte el array en unidimensional y devuelve ese índice, para que unravel_index lo traduzca a las dimensiones originales
+max_index = np.unravel_index(three_dim_array.argmax(), three_dim_array.shape)
+
+
+print(f"Índice del elemento mínimo: {min_index}. Índice del elemento máximo: {max_index}")
+
+# 14. Generar una matriz de tamaño 10x10 en la que los bordes sean 1 y el interior ceros (0). (Utilizar rangos de índices)
+
+stylish_m = np.ones((10, 10))
+
+stylish_m[1:-1, 1:-1] = 0
+
+print(stylish_m)
+
+# 15. Crear array de tamaño 5x5 con los siguientes valores; [0,1,2,3,4]
+
+m5x5 = np.random.randint(0, 5, size=(5, 5))
+
+print(m5x5)
+
+# 16. Crear dos arrays aleatorios del mismo tamaño (3x3 o 5x5) y verificar si son iguales. Comprobar si algún elemento coincide, generando matriz booleana.
+
+random_m1 = np.random.randint(1, 10, size=(3, 3))
+random_m2 = np.random.randint(1, 10, size=(3, 3))
+
+print(random_m1 == random_m2)
+
+# 17. Generar array de dimensión 5x5 en el que los elementos sean de tipo numérico entero aleatorio comprendido entre el 1 y 100.
+
+random_5x5_arr = np.random.randint(1, 101, size=(5, 5))
+
+print(random_5x5_arr)
+
+
+# 18. Dado el array anterior, obtener la suma total de la matriz 5x5.
+
+total_sum = np.sum(random_5x5_arr)
+
+print(total_sum)
+
+# 19. Dado el array anterior, obtener un nuevo array que contenga la suma de cada una de las columnas.
+
+columns_sum = np.sum(random_5x5_arr, axis=0)
+
+print(columns_sum)
+
+# 20. Dado el array anterior, extraer fila inicial, fila intermedia (fila 3) y la última fila.
+
+rows = random_5x5_arr.shape[0]
+
+first_row = random_5x5_arr[0]
+middle_row = random_5x5_arr[rows // 2]
+last_row = random_5x5_arr[-1]
+
+print(first_row)
+print(middle_row)
+print(last_row)
