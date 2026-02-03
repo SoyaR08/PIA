@@ -4,8 +4,8 @@ import numpy as np
 
 # Tarea - Ejercicios NumPy
 
-# 5. Crear matriz 3x3 con valores del 0 a 8.
+# 11. Crear un array con valores al azar de forma 3x3x3 (3 dimensiones)
 
-m = np.arange(0, 9).reshape(3, 3)
+three_dim_array = np.random.randint(0, 100, size=27).reshape(3, 3, 3)
 
-print(m)
+print(three_dim_array)

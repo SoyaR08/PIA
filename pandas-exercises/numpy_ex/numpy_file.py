@@ -31,3 +31,40 @@ print(ones_v)
 m = np.arange(0, 9).reshape(3, 3)
 
 print(m)
+
+# 6. Crear un array de 10 cincos.
+
+array_of_five = np.full(10, 5)
+
+print(array_of_five)
+
+# 7. Transformar el array anterior a dimensión [2,5] y [5,2]
+
+arf_2x5 = array_of_five.reshape(2, 5)
+arf_5x2 = array_of_five.reshape(5, 2)
+
+print(arf_2x5)
+print(arf_5x2)
+
+# 8. Encontrar los índices (no el valor) que no son cero dentro del siguiente array: [1,2,4,2,4,0,1,0,0,0,12,4,5,6,7,0]
+
+array = np.array([1,2,4,2,4,0,1,0,0,0,12,4,5,6,7,0])
+
+print(np.where(array != 0)[0])
+
+# 9. Crear una matriz identidad 6x6
+
+six_identity = np.identity(6)
+print(six_identity)
+
+# 10. Crear vector con 100 valores aleatorios de formato entero.
+
+hundred_of_randoms = np.random.randint(0, 100, size=100)
+
+print(hundred_of_randoms)
+
+# 11. Crear un array con valores al azar de forma 3x3x3 (3 dimensiones)
+
+three_dim_array = np.random.randint(0, 100, size=27).reshape(3, 3, 3)
+
+print(three_dim_array)
