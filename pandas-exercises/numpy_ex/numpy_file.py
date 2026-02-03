@@ -68,3 +68,9 @@ print(hundred_of_randoms)
 three_dim_array = np.random.randint(0, 100, size=27).reshape(3, 3, 3)
 
 print(three_dim_array)
+
+# 12. Encontrar los valores mínimos y máximos del anterior array
+
+mix_element, max_element = three_dim_array.min(), three_dim_array.max()
+
+print(f"Elemento mínimo: {mix_element}. Elemento máximo: {max_element}")
