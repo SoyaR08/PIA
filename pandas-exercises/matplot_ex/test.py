@@ -8,30 +8,42 @@ plt.style.use('_mpl-gallery')
 np.random.seed(3) # Esto me indica que será siempre lo mismo
 
 
-## Ejercicio 02 
-# Escribir un programa que pregunte al usuario por las ventas de un rango de años y 
-# muestre por pantalla un diagrama de líneas con la evolución de las ventas. 
+# Ejercicio 03.  
+# Escribir una función que reciba un diccionario con las notas de las asignaturas de 
+# un curso y una cadena con el nombre de un color y devuelva un diagrama de barras 
+# de las notas en el color dado. 
 
-x = np.arange(2000, 2021)
+def create_grades_graphic(grades):
+    
+    if not isinstance(grades, dict):
+       raise Exception("Formato no válido")
+    
+    x, y = grades.items()
 
-size = len(x)
+    return ""
 
-y = np.random.randint(10000, 15000, size)
+# x = np.arange(2000, 2021)
 
-# plot
-fig, ax = plt.subplots()
+# size = len(x)
 
-ax.plot(x, y, linewidth=2.0)
+# y = np.random.randint(10000, 15000, size)
 
-ax.set_title("Evolución de ventas entre 2000 y 2020")
-ax.set_xlabel("Año")
-ax.set_ylabel("Ventas")
+# # plot
+# fig, ax = plt.subplots()
 
-ax.set_xticks(x)
-ax.tick_params(axis='x', rotation=45)
+# ax.plot(x, y, linewidth=2.0)
 
-ax.set(xlim=(1999, 2021),
-       ylim=(0, 15000), yticks=np.arange(0, 20001, 5000))
+# ax.set_title("Evolución de ventas entre 2000 y 2020")
+# ax.set_xlabel("Año")
+# ax.set_ylabel("Ventas")
 
-plt.tight_layout()
-plt.show()
+# ax.set_xticks(x)
+# ax.tick_params(axis='x', rotation=45)
+
+# ax.set(xlim=(1999, 2021),
+#        ylim=(0, 15000), yticks=np.arange(0, 20001, 5000))
+
+# plt.tight_layout()
+# plt.show()
+
+create_grades_graphic(9)

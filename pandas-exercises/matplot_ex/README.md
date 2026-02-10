@@ -9,28 +9,30 @@ el 0 y 100 en el eje X y su raíz cuadrada en el eje Y.
 Escribir un programa que pregunte al usuario por las ventas de un rango de años y 
 muestre por pantalla un diagrama de líneas con la evolución de las ventas. 
 
-Ejercicio 03.  
+## Ejercicio 03.  
 Escribir una función que reciba un diccionario con las notas de las asignaturas de 
 un curso y una cadena con el nombre de un color y devuelva un diagrama de barras 
 de las notas en el color dado. 
 
-Ejercicio 04. 
+## Ejercicio 04. 
 
 Escribir una función que reciba una serie de Pandas con las notas de los alumnos 
 de un curso y devuelva un diagrama de cajas con las notas. El diagrama debe tener 
-el título “Distribución de Notas” 
-Ejercicio 05. 
+el título “Distribución de Notas”
+
+## Ejercicio 05. 
 Escribir una función que reciba una serie de Pandas con el número de ventas de un 
 producto durante los meses de un trimestre y un título, y cree un diagrama de 
 sectores con las ventas en formato PNG con el título dado. El diagrama debe 
 guardarse en un fichero con el formato PNG y el título dado. 
-Ejercicio 06.  
+
+## Ejercicio 06.  
 Escribir una función que reciba una serie de Pandas con el número de ventas de un 
 producto por años y una cadena con el tipo de gráfico a generar (líneas, barras, 
 sectores, áreas) y devuelva un diagrama del tipo indicado con la evolución de las 
 ventas por años y con el título “Evolución del Número de Ventas” 
-Python - Matplotlib 
-Ejercicio 07.  
+
+## Ejercicio 07.  
 Escribir una función que reciba un dataframe de Pandas con los ingresos y gastos 
 de una empresa por meses y devuelva un diagrama de líneas con dos líneas, la 
 primera para los ingresos, y la segunda para los gastos. El diagrama debe tener una 
@@ -48,7 +50,8 @@ Cierre: Precio de la acción al cierre de la Bolsa
 Volumen: Volumen de negocios al cierre de la Bolsa 
 Construir una función que reciba el fichero “bancos.csv” y cree un diagrama de 
 líneas con las series temporales de las cotizaciones de cierre de cada banco. 
-Ejercicio 09. 
+
+## Ejercicio 09. 
 El fichero “titanic.csv” contiene información sobre los pasajeros del Titanic. Crear 
 un dataframe con Pandas y a partir del mismo, generar los siguientes diagramas;  
 1. Diagrama de Sectores con los fallecidos y supervivientes 
