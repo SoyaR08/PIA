@@ -1,5 +1,6 @@
 from matplotlib import pyplot as plt
 import numpy as np
+import pandas as pd
 import math
 
 plt.style.use('_mpl-gallery')
@@ -59,3 +60,58 @@ ax.set(xlim=(1999, 2021),
 
 plt.tight_layout()
 plt.show()
+
+# Ejercicio 03.  
+# Escribir una función que reciba un diccionario con las notas de las asignaturas de 
+# un curso y una cadena con el nombre de un color y devuelva un diagrama de barras 
+# de las notas en el color dado. 
+
+def create_grades_graphic(grades, color="blue"):
+    
+    if not isinstance(grades, dict):
+       raise Exception("Formato no válido")
+    
+    x = []
+    y = []
+
+    for item in grades.items():
+        x.append(item[0])
+        y.append(item[1])
+
+    # plot
+    fig, ax = plt.subplots()
+
+    ax.bar(x, y, color=color)
+
+    ax.set_title("Comparación de notas por asignatura")
+    ax.set_xlabel("Asignatura")
+    ax.set_ylabel("Nota")
+
+    plt.tight_layout()
+    plt.show()
+
+# colores: red, blue, green, cyan, magenta, yellow, black, white
+create_grades_graphic({"Matemáticas": 8, "Lengua": 7, "Inglés": 9}, color="blue")
+
+# Ejercicio 04. 
+# Escribir una función que reciba una serie de Pandas con las notas de los alumnos 
+# de un curso y devuelva un diagrama de cajas con las notas. El diagrama debe tener 
+# el título “Distribución de Notas”
+
+def create_box_plot_grades_graphic(grades, color="blue"):
+    
+    if not isinstance(grades, pd.Series):
+       raise Exception("Formato no válido")
+    
+    grades.plot.box(
+        patch_artist=True, # Permite rellenar la caja
+        boxprops=dict(facecolor=color)
+    )
+    plt.title("Distribución de Notas")
+    plt.ylabel("Notas")
+
+    plt.tight_layout()
+    plt.show()
+
+# colores: red, blue, green, cyan, magenta, yellow, black, white
+create_box_plot_grades_graphic(pd.Series([8, 7, 9, 5, 6, 10]), color="blue")
