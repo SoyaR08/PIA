@@ -115,3 +115,42 @@ def create_box_plot_grades_graphic(grades, color="blue"):
 
 # colores: red, blue, green, cyan, magenta, yellow, black, white
 create_box_plot_grades_graphic(pd.Series([8, 7, 9, 5, 6, 10]), color="blue")
+
+# Ejercicio 05. 
+# Escribir una función que reciba una serie de Pandas con el número de ventas de un 
+# producto durante los meses de un trimestre y un título, y cree un diagrama de 
+# sectores con las ventas en formato PNG con el título dado. El diagrama debe 
+# guardarse en un fichero con el formato PNG y el título dado. 
+
+def create_pie_sells_graphic(sells, months, title):
+    
+    if not isinstance(sells, pd.Series):
+       raise Exception("Formato no válido")
+    
+    colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, sells.size))
+
+    fig, ax = plt.subplots()
+
+    ax.set_title(title)
+
+    ax.pie(
+        sells.values,
+        labels=months,
+        colors=colors,
+        autopct=lambda p: f'{int(p * sum(sells) / 100)}',
+        wedgeprops={"linewidth": 1, "edgecolor": "white"}
+    )
+
+    ax.axis('off')
+
+    plt.tight_layout()
+
+    # Guardar en PNG
+    plt.savefig("pandas-exercises/matplot_ex/result/ventas_mensuales.png", dpi=300)
+
+    plt.show()
+
+data = pd.Series([50000, 30000, 80000])
+months = ["Enero", "Febrero", "Marzo"]
+
+create_pie_sells_graphic(data, months, "Ventas 1º Trimestre")
