@@ -146,7 +146,7 @@ def create_pie_sells_graphic(sells, months, title):
     plt.tight_layout()
 
     # Guardar en PNG
-    plt.savefig("pandas-exercises/matplot_ex/result/ventas_mensuales.png", dpi=300)
+    plt.savefig("result/ventas_mensuales.png", dpi=300)
 
     plt.show()
 
@@ -303,7 +303,7 @@ def create_bank_wall_street_cotization(dataframe):
 
 
 
-df = load_csv("pandas-exercises/matplot_ex/bancos.csv")
+df = load_csv("bancos.csv")
 
 cleaned_csv = df.loc[:, ["Empresa", "Fecha", "Cierre"]].copy()
 
@@ -415,7 +415,7 @@ def create_bar_survival_by_class_cumulative(dataframe):
     plt.tight_layout()
     plt.show()
 
-df = load_csv("pandas-exercises/matplot_ex/titanic.csv")
+df = load_csv("titanic.csv")
 
 ages = df["Age"].dropna()
 classes = df["Pclass"].value_counts()
