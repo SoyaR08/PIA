@@ -154,3 +154,113 @@ data = pd.Series([50000, 30000, 80000])
 months = ["Enero", "Febrero", "Marzo"]
 
 create_pie_sells_graphic(data, months, "Ventas 1º Trimestre")
+
+# Ejercicio 06.  
+# Escribir una función que reciba una serie de Pandas con el número de ventas de un 
+# producto por años y una cadena con el tipo de gráfico a generar (líneas, barras, 
+# sectores, áreas) y devuelva un diagrama del tipo indicado con la evolución de las 
+# ventas por años y con el título “Evolución del Número de Ventas” 
+
+def create_graphics(data, years, option):
+    
+    fig, ax = plt.subplots()
+    x = years
+    y = data
+
+    match option:
+
+        case 'a': # Gráfico de líneas
+
+            ax.plot(x, y, linewidth=2.0)
+
+            ax.set_title(f"Evolución de ventas entre {x.min()} y {x.max()}")
+            ax.set_xlabel("Año")
+            ax.set_ylabel("Ventas")
+
+            ax.set_xticks(x)
+            ax.tick_params(axis='x', rotation=45)
+            ax.set(xlim=(x.min() - 1, x.max() + 1),
+                ylim=(y.min() - 10000, y.max() + 10000), yticks=y)
+            
+        case 'b': # Gráfico de barras
+
+            ax.bar(x, y, color="blue")
+
+            ax.set_title(f"Evolución de ventas entre {x.min()} y {x.max()}")
+            ax.set_xlabel("Año")
+            ax.set_ylabel("Ventas")
+            ax.set(xlim=(x.min() - 1, x.max() + 1), xticks=x,
+                ylim=(y.min() - 10000, y.max() + 10000), yticks=y)
+            
+
+        case 'c': # Gráfico de sectores (tarta)
+
+            colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, y.size))
+
+            fig, ax = plt.subplots()
+
+            ax.set_title(f"Evolución de ventas entre {x.min()} y {x.max()}")
+
+            ax.pie(
+                y.values,
+                labels=x,
+                colors=colors,
+                autopct=lambda p: f'{int(p * sum(y) / 100)}',
+                wedgeprops={"linewidth": 1, "edgecolor": "white"}
+            )
+
+            ax.axis('off')
+
+        case 'd': # Gráfico de áreas
+            ax.fill_between(x, y, color="skyblue", alpha=0.5) # alpha controla la transparencia 
+            ax.plot(x, y, color="Slateblue", alpha=0.8)       # línea opcional encima del área
+            ax.set_title(f"Evolución de ventas entre {x.min()} y {x.max()}")
+            ax.set_xlabel("Año")
+            ax.set_ylabel("Ventas")
+            plt.grid(True)
+        
+    plt.tight_layout()
+    plt.show()
+
+
+# Ejercicio 07.  
+# Escribir una función que reciba un dataframe de Pandas con los ingresos y gastos 
+# de una empresa por meses y devuelva un diagrama de líneas con dos líneas, la 
+# primera para los ingresos, y la segunda para los gastos. El diagrama debe tener una 
+# leyenda identificando la línea de los ingresos y la de los gastos, un título con el 
+# nombre “Evolución de Ingresos y Gastos” y el eje Y debe empezar en 0.  
+
+def create_income_outcome_graphics(dataframe):
+    
+    fig, ax = plt.subplots()
+
+    x = dataframe['month']
+    y = dataframe['income']
+    y2 = dataframe['outcome']
+
+    plt.ylim(0, 150000)  # eje Y de 0 a 150000
+
+    ax.plot(x, y, marker='o', color='green', label='Ingresos', linewidth=2.0)
+    ax.plot(x, y2, marker='o', color='red', label='Gastos' , linewidth=2.0)
+
+    # Títulos y etiquetas
+    plt.title('Evolución de Ingresos y Gastos')
+    plt.xlabel('Mes')
+    plt.ylabel('Monto')
+    plt.xticks(rotation=45)  # rotar nombres de meses
+    plt.grid(True)
+    plt.legend()  # muestra la leyenda
+    plt.tight_layout()  # ajusta el gráfico para que no se corten los labels
+
+    plt.show()
+
+xlsx = {
+    'month': ['Enero', 'Febrero', 'Marzo', 'Abril', 
+              'Mayo', 'Junio', 'Julio', 'Agosto', 
+              'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    'income': np.random.uniform(25000, 120000, size=12),
+    'outcome': np.random.uniform(30000, 110000, size=12)
+}
+
+df = pd.DataFrame(xlsx)
+create_income_outcome_graphics(df)
