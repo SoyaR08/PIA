@@ -264,3 +264,48 @@ xlsx = {
 
 df = pd.DataFrame(xlsx)
 create_income_outcome_graphics(df)
+
+# Ejercicio 08. 
+# El fichero “bancos.csv” contiene las cotizaciones de los principales bancos de 
+# España con los siguientes datos:  - - - - - - 
+# Empresa: Nombre de la empresa 
+# Apertura: Precio de la acción a la apertura de la Bolsa 
+# Máximo: Precio máximo de la acción durante la jornada. 
+# Mínimo: Precio mínimo de la acción durante la jornada. 
+# Cierre: Precio de la acción al cierre de la Bolsa 
+# Volumen: Volumen de negocios al cierre de la Bolsa 
+# Construir una función que reciba el fichero “bancos.csv” y cree un diagrama de 
+# líneas con las series temporales de las cotizaciones de cierre de cada banco. 
+
+def load_csv(path):
+
+    return pd.read_csv(path, parse_dates=["Fecha"]).copy()
+
+def create_bank_wall_street_cotization(dataframe):
+    
+    fig, ax = plt.subplots()
+
+    for key, value in dataframe:
+        print(key)   # el nombre del banco
+        print(value.head(3))  # primeras 3 filas de ese banco
+        ax.plot(value["Fecha"], value["Cierre"], marker='o', label=key, linewidth=2.0)
+
+    # Títulos y etiquetas
+    plt.title('Evolución de Cotizaciones de Bancos')
+    plt.xlabel('Fecha')
+    plt.ylabel('Cierre (USD)')
+    plt.xticks(rotation=45)  # rotar nombres de meses
+    plt.grid(True)
+    plt.legend()  # muestra la leyenda
+    plt.tight_layout()  # ajusta el gráfico para que no se corten los labels
+
+    plt.show()
+
+
+
+df = load_csv("pandas-exercises/matplot_ex/bancos.csv")
+
+cleaned_csv = df.loc[:, ["Empresa", "Fecha", "Cierre"]].copy()
+
+test = cleaned_csv.groupby(cleaned_csv["Empresa"])
+create_bank_wall_street_cotization(test)

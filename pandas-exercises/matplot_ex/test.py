@@ -9,39 +9,34 @@ plt.style.use('_mpl-gallery')
 np.random.seed(3) # Esto me indica que será siempre lo mismo
 
 
-# Ejercicio 08. 
-# El fichero “bancos.csv” contiene las cotizaciones de los principales bancos de 
-# España con los siguientes datos:  - - - - - - 
-# Empresa: Nombre de la empresa 
-# Apertura: Precio de la acción a la apertura de la Bolsa 
-# Máximo: Precio máximo de la acción durante la jornada. 
-# Mínimo: Precio mínimo de la acción durante la jornada. 
-# Cierre: Precio de la acción al cierre de la Bolsa 
-# Volumen: Volumen de negocios al cierre de la Bolsa 
-# Construir una función que reciba el fichero “bancos.csv” y cree un diagrama de 
-# líneas con las series temporales de las cotizaciones de cierre de cada banco. 
+## Ejercicio 09. 
+# El fichero “titanic.csv” contiene información sobre los pasajeros del Titanic. Crear 
+# un dataframe con Pandas y a partir del mismo, generar los siguientes diagramas;  
+# 1. Diagrama de Sectores con los fallecidos y supervivientes 
+# 2. Histograma con las edades 
+# 3. Diagrama de Barras con el número de personas en cada clase 
+# 4. Diagrama de Barras con el número de personas fallecidas y 
+# supervivientes en cada clase. 
+# 5. Diagrama de Barras con el número de personas fallecidas y 
+# supervivientes acumuladas en cada clase.
 
 def load_csv(path):
 
     return pd.read_csv(path).copy()
 
-def create_income_outcome_graphics(dataframe):
+def create_survivors_pie(dataframe):
     
     fig, ax = plt.subplots()
 
-    x = dataframe['month']
-    y = dataframe['income']
-    y2 = dataframe['outcome']
-
-    plt.ylim(0, 150000)  # eje Y de 0 a 150000
-
-    ax.plot(x, y, marker='o', color='green', label='Ingresos', linewidth=2.0)
-    ax.plot(x, y2, marker='o', color='red', label='Gastos' , linewidth=2.0)
+    for key, value in dataframe:
+        print(key)   # el nombre del banco
+        print(value.head(3))  # primeras 3 filas de ese banco
+        ax.plot(value["Fecha"], value["Cierre"], marker='o', label=key, linewidth=2.0)
 
     # Títulos y etiquetas
-    plt.title('Evolución de Ingresos y Gastos')
-    plt.xlabel('Mes')
-    plt.ylabel('Monto')
+    plt.title('Evolución de Cotizaciones de Bancos')
+    plt.xlabel('Fecha')
+    plt.ylabel('Cierre (USD)')
     plt.xticks(rotation=45)  # rotar nombres de meses
     plt.grid(True)
     plt.legend()  # muestra la leyenda
@@ -50,10 +45,25 @@ def create_income_outcome_graphics(dataframe):
     plt.show()
 
 
+    # colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, sells.size))
 
-df = load_csv("pandas-exercises/matplot_ex/bancos.csv")
+    # fig, ax = plt.subplots()
 
-test = df.groupby(df["Empresa"])
-for nombre_banco, grupo in test:
-    print(nombre_banco)   # el nombre del banco
-    print(grupo.head(3))  # primeras 3 filas de ese banco
+    # ax.set_title(title)
+
+    # ax.pie(
+    #     sells.values,
+    #     labels=months,
+    #     colors=colors,
+    #     autopct=lambda p: f'{int(p * sum(sells) / 100)}',
+    #     wedgeprops={"linewidth": 1, "edgecolor": "white"}
+    # )
+
+    # ax.axis('off')
+
+    # plt.tight_layout()
+
+
+df = load_csv("pandas-exercises/matplot_ex/titanic.csv")
+print(df.head(3))
+
