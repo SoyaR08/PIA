@@ -232,7 +232,36 @@ df = pd.DataFrame(data, columns=['a', 'b', 'c'])
 ```python
 import pandas as pd
 
-# read_excel(fichero.xlsx, sheet_name=hoja, header=n, index_col=m, na_values=no-validos, decimal=separador-decimal)
+# Leer desde csv
+df = pd.read_csv(fichero.csv, sep=';', header=n, index_col=m, na_values=no-valid, decimal=',')
 
-df = pd.read_csv(link, sep=';', decimal=',')
+# Leer desde excel
+df = pd.read_excel(fichero.xlsx, sheet_name=hoja, header=n, index_col=m, na_values=no-validos, decimal=separador-decimal)
+```
+
+### Exportación de ficheros
+```python
+import pandas as pd
+
+# Exportar a csv
+df.to_csv(fichero.csv, sep=';', header=n, columns=booleano, index=booleano)
+
+# Exportar a excel
+df.to_excel(fichero.xlsx, sheet_name=hoja, columns=booleano, index=booleano)
+```
+
+En el primero se exporta al fichero en formato csv usando como separador los datos de la cadena separador. 
+Si se le pasa True al parámetro columns se exporta también la fila con el nombre de las columnas y si se le pasa a index, se exporta también la columna con el nombre de las filas.
+
+En el segundo se exporta al fichero en formato excel, si se le pasa True al parámetro columns se exporta también la fila con el nombre de las columnas y si se le pasa a index, se exporta también la columna con el nombre de las filas.
+
+### Atributos de un DataFrame
+
+
+### Renombrar filas y columnas
+
+```python
+import pandas as pd
+columnas = {}
+df.rename(columns=columnas, index=filas)
 ```
