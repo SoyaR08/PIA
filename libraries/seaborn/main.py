@@ -1,6 +1,7 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 # 1. Gráfico de dispersión avanzado con estilo personalizado:
 # Utiliza un dataset de automóviles (mpg) de Seaborn.
@@ -74,4 +75,48 @@ sns.rugplot(x=tip, height=0.05, color="red")
 
 plt.xlabel("Propina ($)")
 plt.title("Distribución de Tip con KDE y Rug")
+plt.show()
+
+# 4. Boxplot multivariado con ajuste de estilo:
+# Trabaja con el dataset diamonds.
+# Convierte las columnas carat, price y depth a arrays de NumPy.
+# Crea un gráfico de caja para analizar la distribución de precios en 
+# diferentes rangos de quilates, segmentado por el tipo de corte.
+# Personaliza el gráfico con diferentes estilos de borde y paletas.
+
+# Cargar dataset
+df = sns.load_dataset("diamonds")
+
+# Seleccionar columnas de interés y convertir a NumPy
+carat = np.array(df["carat"])
+price = np.array(df["price"])
+depth = np.array(df["depth"])
+
+# Revisar primeras filas
+print(df.head())
+
+# Crear categorías de carat
+df['carat_bin'] = pd.cut(df['carat'], bins=[0, 0.5, 1, 1.5, 2, 5], 
+                         labels=['0-0.5','0.5-1','1-1.5','1.5-2','2-5'])
+
+plt.figure(figsize=(10,6))
+
+sns.set_theme(style="whitegrid")  # Estilo general
+
+sns.boxplot(
+    data=df,
+    x='carat_bin',
+    y='price',
+    hue='cut',
+    palette='Set2',          # Paleta de colores
+    linewidth=2,             # Grosor del borde de las cajas
+    fliersize=4,             # Tamaño de los puntos atípicos
+    dodge=True               # Separar cajas por hue
+)
+
+plt.xlabel("Rango de Quilates")
+plt.ylabel("Precio ($)")
+plt.title("Distribución de Precio por Quilates y Tipo de Corte")
+plt.legend(title="Corte", bbox_to_anchor=(1.05,1), loc='upper left')
+plt.tight_layout()
 plt.show()

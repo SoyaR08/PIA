@@ -3,13 +3,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# 3. Distribución de datos con KDE Plot y rug plot:
-# A partir del dataset tips, convierte las columnas total_bill y tip a 
-# arrays.
-# Genera un gráfico de densidad kernel (KDE) superpuesto con un 
-# gráfico de rug.
-# Ajusta el ancho de banda y experimenta con diferentes estilos de 
-# visualización.
+# 5. Violin plot con categorización de datos:
+# Utiliza el dataset iris.
+# Convierte la columna de longitud del sépalo y la especie a arrays 
+# de NumPy.
+# Genera un violin plot para analizar la distribución de la longitud del 
+# sépalo por cada especie.
+# Ajusta la división interna y muestra puntos individuales.
 
 # Cargar dataset
 df = sns.load_dataset("diamonds")
