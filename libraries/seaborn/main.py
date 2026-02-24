@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+np.random.seed(42)
+
 # 1. Gráfico de dispersión avanzado con estilo personalizado:
 # Utiliza un dataset de automóviles (mpg) de Seaborn.
 # Convierte las columnas horsepower, weight y mpg a arrays de 
@@ -168,31 +170,29 @@ plt.show()
 # Cargar dataset
 df = sns.load_dataset("titanic")
 
-print(df.head())
-
 # Eliminar valores nulos relevantes
 df = df.dropna(subset=["class", "fare", "sex"])
 
 # Convertir columnas a arrays de NumPy
-clase = df["class"].to_numpy()
-tarifa = df["fare"].to_numpy()
-genero = df["sex"].to_numpy()
+classes = np.array(df["class"])
+fare = np.array(df["fare"])
+gender = np.array(df["sex"])
 
 # Crear DataFrame auxiliar para agregación
 data = pd.DataFrame({
-    "class": clase,
-    "fare": tarifa,
-    "sex": genero
+    "class": classes,
+    "fare": fare,
+    "sex": gender
 })
 
 # Calcular promedio y desviación estándar
-resumen = data.groupby(["class", "sex"])["fare"].agg(["mean", "std"]).reset_index()
+resume = data.groupby(["class", "sex"])["fare"].agg(["mean", "std"]).reset_index()
 
 # Crear gráfico de barras
 plt.figure(figsize=(10,6))
 
 sns.barplot(
-    data=resumen,
+    data=resume,
     x="class",
     y="mean",
     hue="sex",
@@ -216,14 +216,12 @@ plt.show()
 # Cargar dataset
 df = sns.load_dataset("fmri")
 
-print(df.head())
-
 # Eliminar valores nulos
 df = df.dropna(subset=["timepoint", "signal", "subject"])
 
 # Convertir columnas a arrays de NumPy
-tiempo = df["timepoint"].to_numpy()
-respuesta = df["signal"].to_numpy()
+time = df["timepoint"].to_numpy()
+answer = df["signal"].to_numpy()
 
 # Crear FacetGrid por sujeto
 g = sns.FacetGrid(
@@ -290,12 +288,11 @@ plt.show()
 # estilos diferenciados.
 
 # 1. Crear datos simulados
-np.random.seed(42)
 
-fechas = pd.date_range(start="2024-01-01", periods=180, freq="D")
+dates = pd.date_range(start="2024-01-01", periods=180, freq="D")
 
 # Patrón estacional (sinusoidal) + tendencia + ruido
-ventas = (
+sells = (
     200
     + 0.3 * np.arange(180)                         # Tendencia creciente
     + 20 * np.sin(2 * np.pi * np.arange(180)/30)   # Estacionalidad mensual
@@ -303,20 +300,18 @@ ventas = (
 )
 
 df = pd.DataFrame({
-    "fecha": fechas,
-    "ventas": ventas
+    "fecha": dates,
+    "ventas": sells
 })
 
-print(df.head())
-
 # 2. Convertir a arrays de NumPy
-fechas_array = df["fecha"].to_numpy()
-ventas_array = df["ventas"].to_numpy()
+dates_array = df["fecha"].to_numpy()
+sells_array = df["ventas"].to_numpy()
 
-print("Fechas:", fechas_array[:5])
-print("Ventas:", ventas_array[:5])
+print("Fechas:", dates_array[:5])
+print("Ventas:", sells_array[:5])
 
-# 🔹 3. Configuración estética
+# 3. Configuración estética
 sns.set_style("darkgrid")
 sns.set_context("talk")
 
@@ -324,8 +319,8 @@ plt.figure(figsize=(12,6))
 
 # 4. Línea original
 sns.lineplot(
-    x=fechas_array,
-    y=ventas_array,
+    x=dates_array,
+    y=sells_array,
     label="Ventas diarias",
     linestyle="--"
 )
@@ -349,6 +344,7 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 
+
 # 10. Catplot para variables categóricas con ajuste de orden:
 # Usa el dataset exercise.
 # Convierte la columna de duración y tipo de ejercicio a arrays.
@@ -356,35 +352,30 @@ plt.show()
 # duración en diferentes tipos de ejercicio.
 # Ajusta el orden de categorías y el ancho de puntos.
 
-# 🔹 1. Cargar dataset
+# 1. Cargar dataset
 df = sns.load_dataset("exercise")
 
-print(df.head())
-
-# 🔹 2. Eliminar valores nulos relevantes
+# 2. Eliminar valores nulos relevantes
 df = df.dropna(subset=["time", "kind"])
 
-# 🔹 3. Convertir columnas a arrays de NumPy
-duracion = df["time"].to_numpy()
-tipo_ejercicio = df["kind"].to_numpy()
+# 3. Convertir columnas a arrays de NumPy
+duration = df["time"].to_numpy()
+kind_of_exercise = df["kind"].to_numpy()
 
-print("Duración:", duracion[:5])
-print("Tipo ejercicio:", tipo_ejercicio[:5])
+# 4. Definir orden personalizado
+categories = ["rest", "walking", "running"]
 
-# 🔹 4. Definir orden personalizado
-orden_categorias = ["rest", "walking", "running"]
-
-# 🔹 5. Configuración estética
+# 5. Configuración estética
 sns.set_style("whitegrid")
 sns.set_context("talk")
 
-# 🔹 6. Crear catplot tipo stripplot
+# 6. Crear catplot tipo stripplot
 g = sns.catplot(
     data=df,
     x="kind",
     y="time",
     kind="strip",
-    order=orden_categorias,
+    order=categories,
     height=6,
     aspect=1.3,
     jitter=True,
@@ -407,8 +398,8 @@ plt.show()
 df = sns.load_dataset("penguins").dropna(subset=["flipper_length_mm", "body_mass_g", "species"])
 
 # Convertir a arrays
-aletas = df["flipper_length_mm"].to_numpy()
-peso = df["body_mass_g"].to_numpy()
+fins = np.array(df["flipper_length_mm"])
+weigth = np.array(df["body_mass_g"])
 
 sns.set_style("whitegrid")
 plt.figure(figsize=(8,6))
@@ -438,8 +429,8 @@ plt.show()
 df = sns.load_dataset("mpg").dropna(subset=["horsepower", "weight", "origin"])
 
 # Convertir a arrays
-potencia = df["horsepower"].to_numpy()
-peso = df["weight"].to_numpy()
+horsepower = np.array(df["horsepower"])
+weight = np.array(df["weight"])
 
 sns.set_style("darkgrid")
 plt.figure(figsize=(8,6))
@@ -464,19 +455,17 @@ plt.show()
 # bins.
 # Personaliza las transparencias y colores.
 
-np.random.seed(42)
-
-grupo1 = np.random.normal(50, 10, 500)
-grupo2 = np.random.normal(60, 15, 500)
+group1 = np.random.normal(50, 10, 500)
+group2 = np.random.normal(60, 15, 500)
 
 df = pd.DataFrame({
-    "Grupo 1": grupo1,
-    "Grupo 2": grupo2
+    "Grupo 1": group1,
+    "Grupo 2": group2
 })
 
 # Convertir a arrays
-g1_array = df["Grupo 1"].to_numpy()
-g2_array = df["Grupo 2"].to_numpy()
+g1_array = np.array(df["Grupo 1"])
+g2_array = np.array(df["Grupo 2"])
 
 plt.figure(figsize=(8,6))
 
@@ -498,8 +487,8 @@ plt.show()
 df = sns.load_dataset("titanic").dropna(subset=["age", "class"])
 
 # Convertir a arrays
-edad = df["age"].to_numpy()
-clase = df["class"].to_numpy()
+age = np.array(df["age"])
+classes = np.array(df["class"])
 
 plt.figure(figsize=(8,6))
 
